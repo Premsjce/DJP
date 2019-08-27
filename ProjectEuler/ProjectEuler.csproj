@@ -48,6 +48,7 @@
     <Compile Include="Problem1_MultiplesOf3And5.cs" />
     <Compile Include="Problem3_LargestPrimeFactor.cs" />
     <Compile Include="Problem4_LargestPalindromeProduct.cs" />
+    <Compile Include="Problem5_SmallestMultiple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
