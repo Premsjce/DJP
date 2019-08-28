@@ -8,7 +8,8 @@
             //Problem2_EvenFibonacciNumbers.Driver();
             //Problem3_LargestPrimeFactor.Driver();
             //Problem4_LargestPalindromeProduct.Driver();
-            Problem5_SmallestMultiple.Driver();
+            //Problem5_SmallestMultiple.Driver();
+            Problem6_SumSquareDifference.Driver();
         }
     }
 }
