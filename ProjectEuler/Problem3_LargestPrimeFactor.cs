@@ -47,7 +47,7 @@ namespace ProjectEuler
                 return false;
 
             long limit = (long)Math.Sqrt(number);
-            for (long i = 3; i < limit; i+=2)
+            for (long i = 3; i <= limit; i+=2)
             {
                 if (number % i == 0)
                     return false;

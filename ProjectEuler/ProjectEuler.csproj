@@ -50,6 +50,7 @@
     <Compile Include="Problem4_LargestPalindromeProduct.cs" />
     <Compile Include="Problem5_SmallestMultiple.cs" />
     <Compile Include="Problem6_SumSquareDifference.cs" />
+    <Compile Include="Problem7_10001stPrimeNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

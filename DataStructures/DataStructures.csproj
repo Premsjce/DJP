@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DSDriver.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

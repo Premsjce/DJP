@@ -9,7 +9,8 @@
             //Problem3_LargestPrimeFactor.Driver();
             //Problem4_LargestPalindromeProduct.Driver();
             //Problem5_SmallestMultiple.Driver();
-            Problem6_SumSquareDifference.Driver();
+            //Problem6_SumSquareDifference.Driver();
+            Problem7_10001stPrimeNumber.Driver();
         }
     }
 }
