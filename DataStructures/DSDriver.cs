@@ -10,7 +10,8 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            GraphDS.Driver();
+            //GraphDS.Driver();
+            BST.Driver();
             Console.WriteLine("Press Enter to close");
             Console.ReadLine();
         }
