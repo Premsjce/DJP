@@ -11,7 +11,9 @@ namespace DataStructures
         static void Main(string[] args)
         {
             //GraphDS.Driver();
-            BST.Driver();
+            //BST.Driver();
+            AVLTree.Driver();
+
             Console.WriteLine("Press Enter to close");
             Console.ReadLine();
         }

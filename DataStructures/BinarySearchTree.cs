@@ -10,8 +10,9 @@ namespace DataStructures
     {
         public static void Driver()
         {
-            BinarySearchTree binarySearchTree = new BinarySearchTree(16);
+            BinarySearchTree binarySearchTree = new BinarySearchTree();
 
+            binarySearchTree.Insert(16);
             binarySearchTree.Insert(8);
             binarySearchTree.Insert(24);
             binarySearchTree.Insert(4);
@@ -50,7 +51,7 @@ namespace DataStructures
             binarySearchTree.Remove(binarySearchTree.Root, 4);
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
 
-
+            Console.WriteLine();
             Console.WriteLine("After deleting 27");
             binarySearchTree.Remove(binarySearchTree.Root, 27);
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
@@ -72,12 +73,26 @@ namespace DataStructures
 
     public class BinarySearchTree
     {
-        public BinarySearchTree(int data)
-        {
-            Root = new BinaryNode(data);
-        }
 
         public BinaryNode Root { get; private set; }
+
+
+        private BinaryNode InsertRecursively(BinaryNode root, int data)
+        {
+            if (root == null)
+            {
+                root = new BinaryNode(data);
+                return root;
+            }
+            if (data > root.Data)
+                root.Right = InsertRecursively(root.Right, data);
+            else if (data < root.Data)
+                root.Left =  InsertRecursively(root.Left, data);
+            else
+                throw new InvalidOperationException("all the data should be unique in BST");
+
+            return root;
+        }
 
         public void Insert(int data)
         {
@@ -86,35 +101,40 @@ namespace DataStructures
                 Root = new BinaryNode(data);
                 return;
             }
-            var currentNode = Root;
 
-            while (true)
-            {
-                if (data < currentNode.Data)
-                {
-                    if (currentNode.Left == null)
-                    {
-                        var newNode = new BinaryNode(data);
-                        currentNode.Left = newNode;
-                        return;
-                    }
-                    currentNode = currentNode.Left;
-                }
-                else if (data > currentNode.Data)
-                {
-                    if (currentNode.Right == null)
-                    {
-                        var newNode = new BinaryNode(data);
-                        currentNode.Right = newNode;
-                        return;
-                    }
-                    currentNode = currentNode.Right;
-                }
-                else
-                {
-                    Console.WriteLine("In Binary search tree, all the value mush be unique");
-                }
-            }
+            //Recursive approarch
+            InsertRecursively(Root, data);
+
+            #region Iterative Approach
+            //var currentNode = Root;
+            //while (true)
+            //{
+            //    if (data < currentNode.Data)
+            //    {
+            //        if (currentNode.Left == null)
+            //        {
+            //            var newNode = new BinaryNode(data);
+            //            currentNode.Left = newNode;
+            //            return;
+            //        }
+            //        currentNode = currentNode.Left;
+            //    }
+            //    else if (data > currentNode.Data)
+            //    {
+            //        if (currentNode.Right == null)
+            //        {
+            //            var newNode = new BinaryNode(data);
+            //            currentNode.Right = newNode;
+            //            return;
+            //        }
+            //        currentNode = currentNode.Right;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("In Binary search tree, all the value mush be unique");
+            //    }
+            //}
+            #endregion
         }
 
         public BinaryNode Search(int data)
