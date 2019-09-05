@@ -29,8 +29,8 @@ namespace DynamicProgramming
     {
         public static void Driver()
         {
-            int[] value = { 2, 3, 7, 8, 9 };
-            int len = 5;
+            int[] value = { 5, 1, 2 };
+            int len = 3;
             Console.WriteLine("Max profit for length is " + len + ":" + CalculateProfit(value, len));
             Console.WriteLine("Max profit for length is " + len + ":" + CalculateProfitWithDP(value, len));
         }
@@ -46,7 +46,7 @@ namespace DynamicProgramming
 
             for (int i = 0; i < len; i++)
             {
-                max = Math.Max(max, (value[i] + CalculateProfit(value, len - (i+1))));
+                max = Math.Max(max, (value[i] + CalculateProfit(value, len - (i + 1))));
             }
 
             return max;
@@ -58,16 +58,14 @@ namespace DynamicProgramming
             int[] solution = new int[len + 1];
             solution[0] = 0;
 
-            for(int i = 1; i<= len; i++)
+            for (int i = 1; i <= len; i++)
             {
                 int max = -1;
-                for(int j = 0; j< 1; j++)
-                {
+                for (int j = 0; j < i; j++)
                     max = Math.Max(max, (value[j] + solution[i - (j + 1)]));
-                    solution[i] = max;
-                }
+                solution[i] = max;
             }
             return solution[len];
-        }        
+        }
     }
 }

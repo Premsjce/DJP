@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            //RodCuttingProblem.Driver();
+            RodCuttingProblem.Driver();
             //Fibonacci.Driver();
-            TowerOfHanoi.Driver();
+            //TowerOfHanoi.Driver();
         }
     }
 }
