@@ -29,33 +29,33 @@ namespace DataStructures
             Console.ReadLine();
         }
 
-        static long[] FibSeries = new long[100];
+        
         private static long FindFibonacciDPTabulation(int number)
         {
-
-            FibSeries[0] = 0;
-            FibSeries[1] = 1;
+            long[] fibArray = new long[number+1];
+            fibArray[0] = 0;
+            fibArray[1] = 1;
 
             for (int i = 2; i <= number; i++)            
-                FibSeries[i] = FibSeries[i - 1] + FibSeries[i - 2];
+                fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
 
-            return FibSeries[number];
+            return fibArray[number];
         }
 
-
+        static long[] FibSeries = new long[100];
         private static long FindFibonacciDPMemoization(int number)
         {
             if(number < 2)
             {
                 FibSeries[0] = 0;
-                FibSeries[0] = 1;
+                FibSeries[1] = 1;
                 return FibSeries[number];
             }
 
             if (FibSeries[number] != 0)
                 return FibSeries[number];
 
-            FibSeries[number] = FibSeries[number - 1] + FibSeries[number - 2];
+            FibSeries[number] = FindFibonacciDPMemoization(number - 1) + FindFibonacciDPMemoization(number -2);
             return FibSeries[number];
         }
 
