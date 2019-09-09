@@ -11,16 +11,16 @@ namespace DataStructures
         static void Main(string[] args)
         {
             //GraphDS.Driver();
-            //BST.Driver();
+            BST.Driver();
             //AVLTree.Driver();
-            Console.WriteLine("Enter number");
-            int number = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter number");
+            //int number = int.Parse(Console.ReadLine());
 
-            Console.Write("Tabulation : ");
-            Console.WriteLine(FindFibonacciDPTabulation(number));
+            //Console.Write("Tabulation : ");
+            //Console.WriteLine(FindFibonacciDPTabulation(number));
 
-            Console.Write("Memoization : ");
-            Console.WriteLine(FindFibonacciDPMemoization(number));
+            //Console.Write("Memoization : ");
+            //Console.WriteLine(FindFibonacciDPMemoization(number));
 
             //Console.Write("Recursion : ");
             //Console.WriteLine(FindFibonacciRecursive(number));

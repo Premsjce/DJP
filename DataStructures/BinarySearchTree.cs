@@ -44,6 +44,9 @@ namespace DataStructures
             binarySearchTree.Insert(29);
             binarySearchTree.Insert(31);
 
+
+            
+
             Console.WriteLine("In ordred traversing of Tree");
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
             Console.WriteLine();
@@ -55,6 +58,9 @@ namespace DataStructures
             Console.WriteLine("After deleting 27");
             binarySearchTree.Remove(binarySearchTree.Root, 27);
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
+
+            Console.WriteLine();
+            Console.WriteLine("Is is valid binary tree {0}", binarySearchTree.ValidBST());
         }
     }
 
@@ -198,6 +204,38 @@ namespace DataStructures
             if (root.Right != null)
                 InOrderTraversal(root.Right);
             return;
+        }
+
+        public bool ValidBST()
+        {
+            return ValidBSTSimplified(Root, null, null);
+            
+            //return ValidBST(Root,int.MaxValue, int.MinValue);
+        }
+
+        private bool ValidBST(BinaryNode node, int max, int min)
+        {
+            if (node == null)
+                return true;
+
+            if (node.Data < min || node.Data > max)
+                return false;
+
+            return ValidBST(node.Left, node.Data, min) && ValidBST(node.Right, max, node.Data);
+        }
+
+        private bool ValidBSTSimplified(BinaryNode rootNode, BinaryNode leftNode, BinaryNode rightNode)
+        {
+            if (rootNode == null)
+                return true;
+
+            if (leftNode != null && rootNode.Data <= leftNode.Data)
+                return false;
+
+            if (rightNode != null && rootNode.Data >= rightNode.Data)
+                return false;
+
+            return ValidBSTSimplified(rootNode.Left, leftNode, rootNode) && ValidBSTSimplified(rootNode.Right, rootNode, rightNode);
         }
 
     }
