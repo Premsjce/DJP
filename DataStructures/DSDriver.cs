@@ -11,8 +11,8 @@ namespace DataStructures
         static void Main(string[] args)
         {
             //GraphDS.Driver();
-            BST.Driver();
-            //AVLTree.Driver();
+            //BST.Driver();
+            AVLTree.Driver();
             //Console.WriteLine("Enter number");
             //int number = int.Parse(Console.ReadLine());
 

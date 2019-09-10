@@ -11,22 +11,15 @@ namespace DataStructures
         public static void Driver()
         {
             AVL avlTree = new AVL();
-            avlTree.Add(1);
-            avlTree.Add(2);
-            avlTree.Add(3);
-            avlTree.Add(4);
-            avlTree.Add(5);
-            avlTree.Add(6);
-            avlTree.Add(7);
-            avlTree.Add(8);
-            avlTree.Add(9);
-            avlTree.Add(10);
-            avlTree.Add(11);
-            avlTree.Add(12);
-            avlTree.Add(13);
-            avlTree.Add(14);
-            avlTree.Add(15);
+            for(int i = 0; i< 40; i++)
+                avlTree.Add(i);
+
             avlTree.DisplayTree();
+            Console.WriteLine();
+            avlTree.Delete(15);
+
+            avlTree.DisplayTree();
+            Console.WriteLine();
         }
     }
 
@@ -116,26 +109,31 @@ namespace DataStructures
         {
             var balanceFactor = GetBalanceFactor(current);
 
+            //If BF is > 1, then its left heavy, else its right heavy
             if (balanceFactor > 1)
             {
                 if (GetBalanceFactor(current.Left) > 0)
                 {
-                    current = LeftRotation(current);
+                    //LeftRightRotation , Becuase insertion is left and right
+                    current = LeftRightRotation(current);                    
                 }
                 else
                 {
-                    current = LeftRightRotation(current);
+                    //RightRotatiaon : beacause insertion is LeftLeft
+                    current = RightRotation(current);
                 }
             }
             else if (balanceFactor < -1)
             {
                 if (GetBalanceFactor(current.Right) > 0)
                 {
-                    current = RightRotation(current);
+                    //RightLeftRotation , Becuase insertion is right and left
+                    current = RightLeftRotation(current);                    
                 }
                 else
                 {
-                    current = RightLeftRotation(current);
+                    //Left rotataion : Because it Right Right insertion
+                    current = LeftRotation(current);                    
                 }
             }
             return current;
@@ -152,7 +150,7 @@ namespace DataStructures
         private int GetHeight(BinaryNode node)
         {
             int height = 0;
-            while (node != null)
+            if (node != null)
             {
                 var leftHeight = GetHeight(node.Left);
                 var rightHeight = GetHeight(node.Right);
@@ -182,25 +180,25 @@ namespace DataStructures
             if (target < current.Data)
             {
                 current.Left = RecursivelyDelete(current.Left, target);
-                if(GetBalanceFactor(current) == -2)
-                {
-                    if (GetBalanceFactor(current.Right) > 0)
-                        current = RightRotation(current); 
-                    else
-                        current = RightLeftRotation(current);
+                //if(GetBalanceFactor(current) == -2)
+                //{
+                //    if (GetBalanceFactor(current.Right) > 0)
+                //        current = RightRotation(current); 
+                //    else
+                //        current = RightLeftRotation(current);
 
-                }
+                //}
             }
             else if(target > current.Data)
             {
                 current.Right = RecursivelyDelete(current.Right, target);
-                if(GetBalanceFactor(current) == 2)
-                {
-                    if (GetBalanceFactor(current.Left) > 0)
-                        current = LeftRotation(current);
-                    else
-                        current = LeftRightRotation(current);
-                }
+                //if(GetBalanceFactor(current) == 2)
+                //{
+                //    if (GetBalanceFactor(current.Left) > 0)
+                //        current = LeftRotation(current);
+                //    else
+                //        current = LeftRightRotation(current);
+                //}
             }
             else //now the target is found
             {
@@ -237,78 +235,34 @@ namespace DataStructures
 
         #region Rotataions
 
-        /*
-         *  private Node RotateRR(Node parent)
-        {
-            Node pivot = parent.right;
-            parent.right = pivot.left;
-            pivot.left = parent;
-            return pivot;
-        }
-        private Node RotateLL(Node parent)
-        {
-            Node pivot = parent.left;
-            parent.left = pivot.right;
-            pivot.right = parent;
-            return pivot;
-        }
-        private Node RotateLR(Node parent)
-        {
-            Node pivot = parent.left;
-            parent.left = RotateRR(pivot);
-            return RotateLL(parent);
-        }
-        private Node RotateRL(Node parent)
-        {
-            Node pivot = parent.right;
-            parent.right = RotateLL(pivot);
-            return RotateRR(parent);
-         */
         private BinaryNode RightRotation(BinaryNode parent)
         {
-            //BinaryNode pivotNode = parent.Left;
-            //parent.Left = pivotNode.Right;
-            //pivotNode.Right = parent;
-            //return pivotNode;
-            BinaryNode pivotNode = parent.Right;
-            parent.Right = pivotNode.Left;
-            pivotNode.Left = parent;
-            return pivotNode;
-        }
-
-        private BinaryNode LeftRotation(BinaryNode parent)
-        {
-
-            //BinaryNode pivotNode = parent.Right;
-            //parent.Right = pivotNode.Left;
-            //pivotNode.Left = parent;
-            //return pivotNode;
             BinaryNode pivotNode = parent.Left;
             parent.Left = pivotNode.Right;
             pivotNode.Right = parent;
             return pivotNode;
         }
 
+        private BinaryNode LeftRotation(BinaryNode parent)
+        {
+            BinaryNode pivotNode = parent.Right;
+            parent.Right = pivotNode.Left;
+            pivotNode.Left = parent;
+            return pivotNode;
+        }
+
         private BinaryNode LeftRightRotation(BinaryNode parent)
         {
-            //BinaryNode pivotNode = parent.Right;
-            //parent.Right = LeftRotation(pivotNode);
-            //return RightRotation(parent);
-
-            BinaryNode pivot = parent.Left;
-            parent.Left = RightRotation(pivot);
-            return LeftRotation(parent);            
+            BinaryNode pivot = parent.Right;
+            parent.Right = LeftRotation(pivot);
+            return RightRotation(parent);            
         }
 
         private BinaryNode RightLeftRotation(BinaryNode parent)
         {
-            //BinaryNode pivot = parent.Left;
-            //parent.Left = RightRotation(pivot);
-            //return LeftRotation(parent);
-
-            BinaryNode pivot = parent.Right;
-            parent.Right = LeftRotation(pivot);
-            return RightRotation(parent);            
+            BinaryNode pivot = parent.Left;
+            parent.Left = RightRotation(pivot);
+            return LeftRotation(parent);            
         }
         #endregion
     }
