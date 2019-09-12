@@ -11,13 +11,17 @@ namespace DataStructures
         public static void Driver()
         {
             AVL avlTree = new AVL();
-            for(int i = 0; i< 40; i++)
+            for(int i = 1; i <= 40; i++)
                 avlTree.Add(i);
 
             avlTree.DisplayTree();
             Console.WriteLine();
-            avlTree.Delete(15);
 
+            avlTree.Delete(15);
+            avlTree.DisplayTree();
+            Console.WriteLine();
+
+            avlTree.Delete(3);
             avlTree.DisplayTree();
             Console.WriteLine();
         }
@@ -173,54 +177,30 @@ namespace DataStructures
 
         private BinaryNode RecursivelyDelete(BinaryNode current, int target)
         {
-            BinaryNode parent;
             if (current == null)
                 return null;
 
             if (target < current.Data)
             {
                 current.Left = RecursivelyDelete(current.Left, target);
-                //if(GetBalanceFactor(current) == -2)
-                //{
-                //    if (GetBalanceFactor(current.Right) > 0)
-                //        current = RightRotation(current); 
-                //    else
-                //        current = RightLeftRotation(current);
-
-                //}
             }
             else if(target > current.Data)
             {
                 current.Right = RecursivelyDelete(current.Right, target);
-                //if(GetBalanceFactor(current) == 2)
-                //{
-                //    if (GetBalanceFactor(current.Left) > 0)
-                //        current = LeftRotation(current);
-                //    else
-                //        current = LeftRightRotation(current);
-                //}
             }
-            else //now the target is found
+            //now the target is found
+            else
             {
                 if (current.Right != null)
                 {
-                    //Delete inorder successor
-                    parent = current.Right;
-                    while(parent.Left != null)
-                    {
-                        parent = parent.Left;
-                    }
 
-                    current.Data = parent.Data;
-                    current.Right = RecursivelyDelete(current.Right, parent.Data);
-                    if(GetBalanceFactor(current) == 2)
-                    {
-                        //Rebalancing
-                        if (GetBalanceFactor(current.Left) >= 0)
-                            current = LeftRotation(current);
-                        else
-                            current = LeftRightRotation(current);
-                    }
+                    var minNode = GetMinNode(current.Right);
+                    var tempNode = minNode;
+                    minNode = current;
+                    current = tempNode;
+
+                    current = RecursivelyDelete(minNode, tempNode.Data);
+                    current = BalanceTree(minNode);
                 }
                 else
                 {
@@ -229,6 +209,20 @@ namespace DataStructures
             }
 
             return current;
+        }
+
+        private BinaryNode GetMinNode(BinaryNode currentNode)
+        {
+            if (currentNode.Left == null)
+                return currentNode;
+            return GetMinNode(currentNode.Left);
+        }
+
+        private BinaryNode GetMaxNode(BinaryNode currentNode)
+        {
+            if (currentNode.Right == null)
+                return currentNode;
+            return GetMaxNode(currentNode.Right);
         }
 
         #endregion
