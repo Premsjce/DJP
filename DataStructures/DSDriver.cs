@@ -13,7 +13,9 @@ namespace DataStructures
             //GraphDS.Driver();
             //BST.Driver();
             //AVLTree.Driver();
-            RBLTree.Driver();
+            //RBLTree.Driver();
+            TrieDS.Driver();
+
 
             //Console.WriteLine("Enter number");
             //int number = int.Parse(Console.ReadLine());
