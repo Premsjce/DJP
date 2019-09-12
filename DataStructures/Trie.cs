@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures
 {
@@ -21,28 +18,25 @@ namespace DataStructures
             trieTree.Add("gibbet");
             trieTree.Add("Batra");
 
-            Console.WriteLine(trieTree.Search("Flibbertigibbet"));
+            Console.WriteLine(trieTree.Search("Lollygag"));
         }
     }
 
     public class Trie
     {
-        public Trie()
+        public class TrieNode
         {
-            Root = new TrieNode();
+            public Dictionary<char, TrieNode> Children { get; set; } = new Dictionary<char, TrieNode>();
+            public bool IsEndOfWord { get; set; }
         }
 
-        public TrieNode Root { get; set; }
+        public Trie() => Root = new TrieNode();
 
-        public void Add(string str)
-        {
-             RecursiveInsert(str, 0, Root);
-        }
+        public TrieNode Root { get; } = new TrieNode();
 
-        public bool Search(string str)
-        {
-            return RecursiveSearch(str,0, Root);
-        }
+        public void Add(string str) => RecursiveInsert(str, 0, Root);
+
+        public bool Search(string str) => RecursiveSearch(str, 0, Root);
 
         private bool RecursiveSearch(string str, int index, TrieNode currentNode)
         {
@@ -62,13 +56,9 @@ namespace DataStructures
                 currentNode.IsEndOfWord = true;
                 return currentNode;
             }
-                
-
-            if(currentNode.Children.ContainsKey(str[index]))
-            {
-                var childNode = currentNode.Children[str[index]];
-                return RecursiveInsert(str, index + 1, childNode);
-            }
+            
+            if(currentNode.Children.ContainsKey(str[index]))            
+                return RecursiveInsert(str, index + 1, currentNode.Children[str[index]]);
             else
             {
                 var newChildNode = new TrieNode();
@@ -76,11 +66,5 @@ namespace DataStructures
                 return RecursiveInsert(str, index + 1, newChildNode);
             }
         }
-    }
-
-    public class TrieNode
-    {
-        public Dictionary<char, TrieNode> Children { get; set; } = new Dictionary<char, TrieNode>();
-        public bool IsEndOfWord { get; set; }
     }
 }
