@@ -10,7 +10,10 @@ namespace InterviewQuestions
             //RemoveDuplicatesFromString.Driver();
             //FindFibonacci.Driver();
             //GithibLottoPick.Driver();
-            StringReversal.Driver();
+            //StringReversal.Driver();
+            //NStairCaseProblem.Driver();
+
+            KnapSackZeroOne.Driver();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();

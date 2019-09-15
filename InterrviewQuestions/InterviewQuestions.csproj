@@ -46,7 +46,9 @@
     <Compile Include="BinarySearchTreeOrNot.cs" />
     <Compile Include="FindFibonacci.cs" />
     <Compile Include="InterviewQuestionsDriver.cs" />
+    <Compile Include="KnapSackZeroOne.cs" />
     <Compile Include="LottoPairsDialPad.cs" />
+    <Compile Include="NStairCaseProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoveDuplicatesFromString.cs" />
     <Compile Include="StringReversal.cs" />
