@@ -47,6 +47,7 @@
     <Compile Include="FindFibonacci.cs" />
     <Compile Include="InterviewQuestionsDriver.cs" />
     <Compile Include="KnapSackZeroOne.cs" />
+    <Compile Include="LargestRecangleInHistogram.cs" />
     <Compile Include="LottoPairsDialPad.cs" />
     <Compile Include="NStairCaseProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
