@@ -5,9 +5,11 @@
         static void Main(string[] args)
         {
             //BubbleSort.Driver();
-            SelectionSort.Driver();
+            //SelectionSort.Driver();
             //MergeSort.Driver();
             //RadixSort.Driver();
+
+            HeapSort.Driver();
         }
     }
 }

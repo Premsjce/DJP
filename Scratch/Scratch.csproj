@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{375813CF-81BB-479C-8EDD-865101D1A29F}</ProjectGuid>
+    <ProjectGuid>{23119B9B-BDBF-40B4-BA4E-30E26FA3C751}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Sorting</RootNamespace>
-    <AssemblyName>Sorting</AssemblyName>
+    <RootNamespace>Scratch</RootNamespace>
+    <AssemblyName>Scratch</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BubbleSort.cs" />
-    <Compile Include="HeapSort.cs" />
-    <Compile Include="MergeSort.cs" />
+    <Compile Include="AccesModifiers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadixSort.cs" />
-    <Compile Include="SelectionSort.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

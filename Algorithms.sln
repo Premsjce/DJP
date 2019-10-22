@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammingConcepts", "ProgrammingConcepts\ProgrammingConcepts.csproj", "{EE1A4C64-4711-49F1-AC69-1ACE97EEEFBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{23119B9B-BDBF-40B4-BA4E-30E26FA3C751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{EE1A4C64-4711-49F1-AC69-1ACE97EEEFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE1A4C64-4711-49F1-AC69-1ACE97EEEFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE1A4C64-4711-49F1-AC69-1ACE97EEEFBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23119B9B-BDBF-40B4-BA4E-30E26FA3C751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23119B9B-BDBF-40B4-BA4E-30E26FA3C751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23119B9B-BDBF-40B4-BA4E-30E26FA3C751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23119B9B-BDBF-40B4-BA4E-30E26FA3C751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
