@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Diagnostics;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace InterviewQuestions
 {
@@ -17,9 +12,9 @@ namespace InterviewQuestions
             //GithibLottoPick.Driver();
             //StringReversal.Driver();
             //NStairCaseProblem.Driver();
-            KnapSackZeroOne.Driver();
-
+            //KnapSackZeroOne.Driver();
             //LargestRecangleInHistogram.Driver();
+            Amazon.Driver();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();

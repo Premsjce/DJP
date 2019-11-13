@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Amazon.cs" />
     <Compile Include="BinarySearchTreeOrNot.cs" />
     <Compile Include="FindFibonacci.cs" />
     <Compile Include="InterviewQuestionsDriver.cs" />
