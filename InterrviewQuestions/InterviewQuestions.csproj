@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Amazon.cs" />
+    <Compile Include="BFSSourceDestination.cs" />
     <Compile Include="BinarySearchTreeOrNot.cs" />
     <Compile Include="FindFibonacci.cs" />
     <Compile Include="InterviewQuestionsDriver.cs" />
+    <Compile Include="DFSIslandAndWater.cs" />
     <Compile Include="KnapSackZeroOne.cs" />
     <Compile Include="LargestRecangleInHistogram.cs" />
     <Compile Include="LottoPairsDialPad.cs" />

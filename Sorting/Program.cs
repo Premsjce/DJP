@@ -6,10 +6,10 @@
         {
             //BubbleSort.Driver();
             //SelectionSort.Driver();
-            //MergeSort.Driver();
+            MergeSort.Driver();
             //RadixSort.Driver();
 
-            HeapSort.Driver();
+            //HeapSort.Driver();
         }
     }
 }

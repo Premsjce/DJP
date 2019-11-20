@@ -10,11 +10,11 @@ namespace InterviewQuestions
     {
         public static void Driver()
         {
-            Node node = new Node(3);
-            node.Left = new Node(2);
-            node.Right = new Node(5);
-            node.Left.Left = new Node(1);
-            node.Right.Left = new Node(4);
+            Nody node = new Nody(3);
+            node.Left = new Nody(2);
+            node.Right = new Nody(5);
+            node.Left.Left = new Nody(1);
+            node.Right.Left = new Nody(4);
 
             BinaryTree binaryTree = new BinaryTree(node);
             if(binaryTree.IsBinarySearchTree)            
@@ -24,24 +24,24 @@ namespace InterviewQuestions
         }
     }
 
-    public class Node
+    public class Nody
     {
-        public Node(int _data) => Data = _data;
-        public Node Left { get; set; }
-        public Node Right { get; set; }
+        public Nody(int _data) => Data = _data;
+        public Nody Left { get; set; }
+        public Nody Right { get; set; }
         public int Data { get; set; }
     }
 
     public class BinaryTree
     {
-        public BinaryTree(Node rootNode) => Root = rootNode;
-        public Node Root { get; set; }
+        public BinaryTree(Nody rootNode) => Root = rootNode;
+        public Nody Root { get; set; }
         public bool IsBinarySearchTree => IsValidBinarySearchTree(Root, int.MinValue, int.MaxValue);
 
 
         //First Approach.. Easier one
         //When firstcall happens then minValue = int.MinValue and maxValue = int.MaxValue
-        private bool IsValidBinarySearchTree(Node rootNode, int minValue, int maxValue)
+        private bool IsValidBinarySearchTree(Nody rootNode, int minValue, int maxValue)
         {
             if (rootNode == null)
                 return true;
@@ -56,7 +56,7 @@ namespace InterviewQuestions
         }
 
         //Second Approach.. Bit complex to understand
-        private bool IsValidBinarySearchTree(Node rootNode, Node leftNode, Node rightNode)
+        private bool IsValidBinarySearchTree(Nody rootNode, Nody leftNode, Nody rightNode)
         {
             if (rootNode == null)
                 return true;
@@ -73,6 +73,6 @@ namespace InterviewQuestions
 
     public class SelfBalancingBinarySearchTree : BinaryTree
     {
-        public SelfBalancingBinarySearchTree(Node rootNode) : base(rootNode) { }
+        public SelfBalancingBinarySearchTree(Nody rootNode) : base(rootNode) { }
     }
 }
