@@ -16,9 +16,11 @@ namespace InterviewQuestions
             //LargestRecangleInHistogram.Driver();
             //Amazon.Driver();
             //DFSIslandAndWater.Driver();
-            BFSSourceDestination.Driver();
+            //BFSSourceDestination.Driver();
+            int[] arr = { 3, 5, 6, 3, 3, 5 };
+            var resutlt = CodilityTest.solution(arr);
 
-
+            Console.WriteLine(resutlt);
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();
 

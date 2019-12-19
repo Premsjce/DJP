@@ -46,6 +46,7 @@
     <Compile Include="Amazon.cs" />
     <Compile Include="BFSSourceDestination.cs" />
     <Compile Include="BinarySearchTreeOrNot.cs" />
+    <Compile Include="CodilityTest.cs" />
     <Compile Include="FindFibonacci.cs" />
     <Compile Include="InterviewQuestionsDriver.cs" />
     <Compile Include="DFSIslandAndWater.cs" />
