@@ -53,9 +53,11 @@
     <Compile Include="KnapSackZeroOne.cs" />
     <Compile Include="LargestRecangleInHistogram.cs" />
     <Compile Include="LottoPairsDialPad.cs" />
+    <Compile Include="NQueens.cs" />
     <Compile Include="NStairCaseProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoveDuplicatesFromString.cs" />
+    <Compile Include="ShortestPathInMaze.cs" />
     <Compile Include="StringReversal.cs" />
   </ItemGroup>
   <ItemGroup>

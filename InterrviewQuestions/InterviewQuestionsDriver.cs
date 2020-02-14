@@ -17,10 +17,14 @@ namespace InterviewQuestions
             //Amazon.Driver();
             //DFSIslandAndWater.Driver();
             //BFSSourceDestination.Driver();
-            int[] arr = { 3, 5, 6, 3, 3, 5 };
-            var resutlt = CodilityTest.solution(arr);
 
-            Console.WriteLine(resutlt);
+            //int[] arr = { 3, 5, 6, 3, 3, 5 };
+            //var resutlt = CodilityTest.solution(arr);
+            //Console.WriteLine(resutlt);
+
+            NQueens.Driver();
+            //ShortestPathInMaze.Driver();
+
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();
 
