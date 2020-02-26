@@ -22,8 +22,8 @@ namespace InterviewQuestions
             //var resutlt = CodilityTest.solution(arr);
             //Console.WriteLine(resutlt);
 
-            NQueens.Driver();
-            //ShortestPathInMaze.Driver();
+            //NQueens.Driver();
+            ShortestPathInMaze.Driver();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();

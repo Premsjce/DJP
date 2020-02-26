@@ -52,6 +52,7 @@
     <Compile Include="DFSIslandAndWater.cs" />
     <Compile Include="KnapSackZeroOne.cs" />
     <Compile Include="LargestRecangleInHistogram.cs" />
+    <Compile Include="LongestPalindromeSubstring.cs" />
     <Compile Include="LottoPairsDialPad.cs" />
     <Compile Include="NQueens.cs" />
     <Compile Include="NStairCaseProblem.cs" />

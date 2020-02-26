@@ -9,8 +9,9 @@ namespace DesignPatterns
             //FactoryMethod.Driver();
             //AbstractFactory.Driver();
             //BuilderPattern.Driver();
-            BridgePattern.Driver();
-            
+            //BridgePattern.Driver();
+
+            Singleton.Driver();
             Console.WriteLine("Press Enter to close......");
             Console.ReadLine();
         }

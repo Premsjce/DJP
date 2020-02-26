@@ -53,20 +53,18 @@ namespace InterviewQuestions
             int[] R = { 1, -1, 0, 0 };
             int[] C = { 0, 0, -1, 1 };
 
-            for (int item = 0; item < 3; item++)
+            for (int item = 0; item < 4; item++)
             {
-                if (IsValid(i + R[item], y + C[item]) && IsSafe(mat, visited, i + R[item], y + C[item]))
+                if (IsValid(i + R[item], j + C[item]) && IsSafe(mat, visited, i + R[item], j + C[item]))
                 {
                     minDist = FindShortestPath(mat, visited, i + R[item], j + C[item], x, y, minDist, distance + 1);
                 }
             }
 
-            //Backtracking and resettin to 0
+            //Backtracking and resetting to 0
             visited[i, j] = 0;
 
             return minDist;
-
-
         }
     }
 }
