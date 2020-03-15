@@ -56,6 +56,8 @@ namespace InterviewQuestions
                 {
                     mat[r, col] = 'Q';
                     nQueen(mat, r + 1);
+
+                    //Else Backtrack and make it as -
                     mat[r, col] = '-';
                 }
             }

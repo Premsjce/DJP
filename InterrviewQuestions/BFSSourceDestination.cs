@@ -41,6 +41,7 @@ namespace InterviewQuestions
             bool[,] visited = new bool[ROWLENGTH, COLUMNLENGTH];
             Queue<BFSNode> queue = new Queue<BFSNode>();
             BFSNode source;
+
             for (int row = 0; row < ROWLENGTH; row++)
             {
                 for (int column = 0; column < COLUMNLENGTH; column++)

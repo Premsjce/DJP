@@ -13,6 +13,9 @@ namespace InterviewQuestions
 
             int maxProfit = GetMaxProfitFromKnapSack(profits, weights, capacity, arrLength);
             Console.WriteLine(maxProfit);
+
+            maxProfit = GetMaxValueFromDP(profits, weights, capacity, arrLength);
+            Console.WriteLine(maxProfit);
         }
 
         private static int GetMaxProfitFromKnapSackRecursively(int[] profits, int[] weights, int capacity, int arrLength)
@@ -53,6 +56,42 @@ namespace InterviewQuestions
                 }
             }
             return knapsack[arrLength, capacity];
+        }
+        
+        private static int GetMaxValueRecursively(int[] values, int[] weights, int Capacity, int index)
+        {
+            if (index == 0 || Capacity == 0) return 0;
+
+            if (Capacity < weights[index - 1])
+                return GetMaxValueRecursively(values, weights, Capacity, index - 1);
+
+            return  Math.Max(
+                values[index - 1] + GetMaxValueRecursively(values, weights, Capacity - weights[index - 1], index - 1),
+                GetMaxValueRecursively(values, weights, Capacity, index - 1));
+        }
+
+        private static int GetMaxValueFromDP(int[] values, int [] weights, int capacity, int index)
+        {
+            int[,] knapSack = new int[index + 1, capacity + 1];
+            
+            for (int row = 0; row <= index; row++)
+            {
+                for (int col = 0; col <= capacity; col++)
+                {
+                    if (row == 0 || col == 0)
+                        knapSack[row, col] = 0;
+                    else if (weights[row - 1] > col)
+                        knapSack[row, col] = knapSack[row - 1, col];
+                    else 
+                    {
+                        knapSack[row, col] = Math.Max(
+                            knapSack[row - 1, col],
+                            values[row -1] + knapSack[row - 1, col - weights[row-1]]);
+                    }
+                }
+            }
+
+            return knapSack[index, capacity];
         }
     }
 }

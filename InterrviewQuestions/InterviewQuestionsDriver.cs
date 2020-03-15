@@ -23,7 +23,14 @@ namespace InterviewQuestions
             //Console.WriteLine(resutlt);
 
             //NQueens.Driver();
-            ShortestPathInMaze.Driver();
+            //ShortestPathInMaze.Driver();
+
+            //ExcelColumnNameToNumber.Driver();
+            //RotateMatrixBy90Degree.Driver();
+            //LargestHistogram.Driver();
+
+            //RottenOragesInMatrix.Driver();
+            AmazaonAmcat.Driver();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();
