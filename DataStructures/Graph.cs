@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures
 {
@@ -10,6 +7,24 @@ namespace DataStructures
     {
         public static void  Driver()
         {
+            //New Graph
+
+            List<GraphEdge> graphEdges = new List<GraphEdge>()
+            {
+                new GraphEdge(0, 1, 6),
+                new GraphEdge(1, 2, 7),
+                new GraphEdge(2, 0, 5),
+                new GraphEdge(2, 1, 4),
+                new GraphEdge(3, 2, 10),
+                new GraphEdge(4, 5, 1)
+            };
+
+            var graph = new GraphDataStructure(graphEdges);
+
+            graph.AddEdge(new GraphEdge(5, 4, 3));
+            graph.PrintGraph();        
+
+            /*
             Graph graph = new Graph(7);
             graph.AddEdge(graph, 0, 1);
             graph.AddEdge(graph, 0, 4);
@@ -20,6 +35,7 @@ namespace DataStructures
             graph.AddEdge(graph, 3, 4);
 
             graph.PrintGraph(graph);
+            */
         }
     }
 
@@ -57,6 +73,79 @@ namespace DataStructures
                     Console.Write($"-->{num}");
                 Console.WriteLine();
             }
+        }
+    }
+
+    public class GraphDataStructure
+    {
+        private List<List<GraphNode>> AdjacenceyList = new List<List<GraphNode>>();
+
+        public GraphDataStructure(List<GraphEdge> graphEdges)
+        {
+            for (int i = 0; i < graphEdges.Count; i++)
+                AdjacenceyList[i] = new List<GraphNode>();
+
+            //Initialize all the vertices in Graph
+            foreach (var edge in graphEdges)
+            {
+                AdjacenceyList[edge.Source] = new List<GraphNode>();
+                AdjacenceyList[edge.Source].Add(new GraphNode(edge.Destination, edge.Cost));
+            }
+        }
+
+        public void AddEdge(GraphEdge graphEdge)
+        {
+            if (AdjacenceyList[graphEdge.Source] == null)
+                AdjacenceyList[graphEdge.Source] = new List<GraphNode>();
+
+            AdjacenceyList[graphEdge.Source].Add(new GraphNode(graphEdge.Destination, graphEdge.Cost));
+        }
+
+        public void RemoveEdge(GraphEdge graphEdge)
+        {
+            if (AdjacenceyList[graphEdge.Source] == null)
+                throw new Exception("Such edge does not exists");
+            var removalNode = AdjacenceyList[graphEdge.Source].Find((x) => (x.Destination == graphEdge.Destination) && (x.Cost == graphEdge.Cost));
+            AdjacenceyList[graphEdge.Source].Remove(removalNode);
+        }
+
+        public void PrintGraph()
+        {
+            foreach(var node in AdjacenceyList)
+            {
+                foreach(var innerNode in node)
+                {
+                    Console.Write($"{node} {innerNode.Destination} => {innerNode.Cost}");
+                }
+                Console.WriteLine();
+            }
+        }
+        
+    }
+
+    public class GraphEdge
+    {
+        public int Source { get; set; }
+        public int Destination { get; set; }
+        public int Cost { get; set; }
+
+        public GraphEdge(int src, int dest, int cost)
+        {
+            Source = src;
+            Destination = dest;
+            Cost = cost;
+        }
+    }
+
+    public class GraphNode
+    {
+        public int Destination { get; set; }
+        public int Cost { get; set; }
+
+        public GraphNode(int dest, int cost)
+        {
+            Destination = dest;
+            Cost = cost;
         }
     }
 }

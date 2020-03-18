@@ -14,7 +14,7 @@ namespace DataStructures
             //BST.Driver();
             //AVLTree.Driver();
             //RBLTree.Driver();
-            TrieDS.Driver();
+            //TrieDS.Driver();
 
 
             //Console.WriteLine("Enter number");
@@ -28,6 +28,8 @@ namespace DataStructures
 
             //Console.Write("Recursion : ");
             //Console.WriteLine(FindFibonacciRecursive(number));
+
+            GraphDS.Driver();
 
             Console.WriteLine("Press Enter to close");
             Console.ReadLine();

@@ -48,6 +48,7 @@
     <Compile Include="DSDriver.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="LinkedList.cs" />
+    <Compile Include="PriorityQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedBlackTree.cs" />
     <Compile Include="Trie.cs" />

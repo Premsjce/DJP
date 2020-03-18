@@ -9,7 +9,7 @@ namespace Sorting
             int[] numbers = { 99, 11, 73, 05, 88, 144, 1, 29, 99,};
             int length = numbers.Length - 1;
 
-            //MergeRecursive(numbers, 0, length);
+            MergeRecursive(numbers, 0, length);
             var result = MergerRecursiveWithReturn(numbers);
 
             Console.WriteLine("After recursion");

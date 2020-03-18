@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Searching
 {
@@ -11,7 +7,8 @@ namespace Searching
         static void Main(string[] args)
         {
             //BreadthFirstSearch.Driver();
-            DepthFirstSearch.Driver();
+            //DepthFirstSearch.Driver();
+            DijkstrasAlgrithm.Driver();
             Console.WriteLine("Press Enter to close....");
             Console.ReadLine();
         }
