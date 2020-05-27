@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backtracking\NQueens.cs" />
+    <Compile Include="DivideAndConquer\BinarySearch.cs" />
+    <Compile Include="Matrix\MaxSumSubMatrix.cs" />
+    <Compile Include="Matrix\ShortPathWithConstraint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

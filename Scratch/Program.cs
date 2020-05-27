@@ -8,6 +8,8 @@ namespace Scratch
         static void Main(string[] args)
         {
 
+            Console.WriteLine(GuessGame(10));
+
             //AccesModifiers.Driver();
 
             //var list = new List<int>();
@@ -105,6 +107,26 @@ namespace Scratch
             
             return count;
 
+        }
+
+        public static int GuessAPI(int num)
+        {
+            if (num == 6) return 0;
+            else if (num > 6) return 1;
+            else return -1;
+        }
+
+        public static int GuessGame(int n)
+        {
+            int middle = n / 2;
+            var guessNum = GuessAPI(middle);
+
+            if (guessNum == 0)
+                return middle;
+            else if (guessNum == -1)
+                return GuessGame(2*n);
+            else
+                return GuessGame(middle + 1);
         }
     }
 }

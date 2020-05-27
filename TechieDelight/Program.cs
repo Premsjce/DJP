@@ -1,4 +1,6 @@
 ﻿using TechieDelight.Backtracking;
+using TechieDelight.DivideAndConquer;
+using TechieDelight.Matrix;
 
 namespace TechieDelight
 {
@@ -6,7 +8,10 @@ namespace TechieDelight
     {
         static void Main(string[] args)
         {
-            NQueens.Driver();
+            MaxSumSubMatrix.Driver();
+            //ShortPathWithConstraint.Driver();
+            //BinarySearch.Driver();
+            //NQueens.Driver();
         }
     }
 }
