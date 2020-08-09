@@ -10,7 +10,7 @@ namespace CleanCode
     {
         public static void Driver()
         {
-            var temp = new WebBuilder().AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+            var temp = new WebBuilder().AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();            
         }
     }
 
@@ -38,6 +38,7 @@ namespace CleanCode
             AnyOrigin = true;
             return this;
         }
+
         public WebBuilder AllowCredentials()
         {
             Credentials = true;

@@ -34,8 +34,7 @@ namespace DynamicProgramming
             Console.WriteLine("Max profit for length is " + len + ":" + CalculateProfit(value, len));
             Console.WriteLine("Max profit for length is " + len + ":" + CalculateProfitWithDP(value, len));
         }
-
-
+        
         //With recursive approach
         private static int CalculateProfit(int[] value, int len)
         {
@@ -67,5 +66,7 @@ namespace DynamicProgramming
             }
             return solution[len];
         }
+
+
     }
 }

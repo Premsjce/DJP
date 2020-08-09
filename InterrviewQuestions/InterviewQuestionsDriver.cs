@@ -12,7 +12,7 @@ namespace InterviewQuestions
             //GithibLottoPick.Driver();
             //StringReversal.Driver();
             //NStairCaseProblem.Driver();
-            //KnapSackZeroOne.Driver();
+            KnapSackZeroOne.Driver();
             //LargestRecangleInHistogram.Driver();
             //Amazon.Driver();
             //DFSIslandAndWater.Driver();
@@ -30,7 +30,7 @@ namespace InterviewQuestions
             //LargestHistogram.Driver();
 
             //RottenOragesInMatrix.Driver();
-            AmazaonAmcat.Driver();
+            //AmazaonAmcat.Driver();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();
