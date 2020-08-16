@@ -8,7 +8,9 @@
             //Arrays.MinRangeWithAtleastOneElement.Driver();
             //Arrays.SubArrayWithZeroSum.Driver();
             //Arrays.DutchNationalFlagProblem.Driver();
-            Arrays.SlidingWindowsToCountOnes.Driver();
+            //Arrays.SlidingWindowsToCountOnes.Driver();
+            //Arrays.MaxDiffBetweenTwoElementsWithConstraint.Driver();
+            Arrays.MaxProfixWith2StockTransaction.Driver();
             
             ////Matrix Related
             //Matrix.MaxSumSubMatrix.Driver();

@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\DutchNationalFlagProblem.cs" />
+    <Compile Include="Arrays\MaxDiffBetweenTwoElementsWithConstraint.cs" />
+    <Compile Include="Arrays\MaxProfixFromKStockTransactions.cs" />
+    <Compile Include="Arrays\MaxProfixWith2StockTransaction.cs" />
     <Compile Include="Arrays\MinRangeWithAtleastOneElement.cs" />
     <Compile Include="Arrays\SlidingWindowsToCountOnes.cs" />
     <Compile Include="Arrays\SubArrayWithZeroSum.cs" />
