@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays\DutchNationalFlagProblem.cs" />
+    <Compile Include="Arrays\MinRangeWithAtleastOneElement.cs" />
+    <Compile Include="Arrays\SlidingWindowsToCountOnes.cs" />
+    <Compile Include="Arrays\SubArrayWithZeroSum.cs" />
     <Compile Include="Backtracking\NQueens.cs" />
     <Compile Include="DivideAndConquer\BinarySearch.cs" />
     <Compile Include="Matrix\MaxSumSubMatrix.cs" />

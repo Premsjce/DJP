@@ -1,4 +1,6 @@
-﻿namespace DesignPatterns
+﻿using System;
+
+namespace DesignPatterns
 {
     public class Singleton
     {
@@ -13,6 +15,8 @@
             A a = new B();
             a.AMethod();
         }
+
+        
     }
 
 

@@ -31,22 +31,19 @@ namespace DynamicProgramming
         {
             int[] value = { 5, 1, 2 };
             int len = 3;
-            Console.WriteLine("Max profit for length is " + len + ":" + CalculateProfit(value, len));
-            Console.WriteLine("Max profit for length is " + len + ":" + CalculateProfitWithDP(value, len));
+            Console.WriteLine($"Max profit for length  {len} is {CalculateProfit(value, len)}");
+            Console.WriteLine($"Max profit for length  {len} is {CalculateProfitWithDP(value, len)}");
         }
         
         //With recursive approach
         private static int CalculateProfit(int[] value, int len)
         {
-            //Boundary checking
-            if (len <= 0)
-                return 0;
+            //Boundary or base condition checking
+            if (len <= 0) return 0;
             int max = -1;
 
             for (int i = 0; i < len; i++)
-            {
                 max = Math.Max(max, (value[i] + CalculateProfit(value, len - (i + 1))));
-            }
 
             return max;
         }

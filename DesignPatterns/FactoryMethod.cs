@@ -12,7 +12,7 @@ namespace DesignPatterns
         {
             PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-            var product = new Product("Park Avenue Voyage", 250, "Itsm mens body deodrant");
+            var product = new Product("Park Avenue Voyage", 250, "Items : Mens Body Deodrant");
             paymentProcessor.MakePayment(PaymentMethod.BestOne, product);
         }
     }

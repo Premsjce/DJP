@@ -51,7 +51,6 @@ namespace Sorting
             var temp = numbers[start];
             numbers[start] = numbers[i];
             numbers[i] = temp;
-
         }
     }
 }

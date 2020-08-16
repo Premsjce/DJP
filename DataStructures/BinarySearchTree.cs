@@ -79,10 +79,8 @@ namespace DataStructures
 
     public class BinarySearchTree
     {
-
         public BinaryNode Root { get; private set; }
-
-
+        
         private BinaryNode InsertRecursively(BinaryNode root, int data)
         {
             if (root == null)

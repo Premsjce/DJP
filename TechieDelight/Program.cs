@@ -1,17 +1,25 @@
-﻿using TechieDelight.Backtracking;
-using TechieDelight.DivideAndConquer;
-using TechieDelight.Matrix;
-
-namespace TechieDelight
+﻿namespace TechieDelight
 {
     class Program
     {
         static void Main(string[] args)
         {
-            MaxSumSubMatrix.Driver();
-            //ShortPathWithConstraint.Driver();
-            //BinarySearch.Driver();
-            //NQueens.Driver();
+            //Array related Problems
+            //Arrays.MinRangeWithAtleastOneElement.Driver();
+            //Arrays.SubArrayWithZeroSum.Driver();
+            //Arrays.DutchNationalFlagProblem.Driver();
+            Arrays.SlidingWindowsToCountOnes.Driver();
+            
+            ////Matrix Related
+            //Matrix.MaxSumSubMatrix.Driver();
+            //Matrix.ShortPathWithConstraint.Driver();
+
+            ////Divide and Conquer Related
+            //DivideAndConquer.BinarySearch.Driver();
+
+            ////Backtracking Related
+            //Backtracking.NQueens.Driver();
+
         }
     }
 }
