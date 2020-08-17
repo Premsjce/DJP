@@ -18,7 +18,7 @@ namespace Sorting
         }
 
         #region Inplace sorting         
-        private static void MergeRecursive(int[] numbers, int left, int right)
+        public static void MergeRecursive(int[] numbers, int left, int right)
         {
             if (right > left)
             {

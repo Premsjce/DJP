@@ -45,9 +45,12 @@
   <ItemGroup>
     <Compile Include="AmazaonAmcat.cs" />
     <Compile Include="Amazon.cs" />
+    <Compile Include="ArcherAverage.cs" />
     <Compile Include="BFSSourceDestination.cs" />
     <Compile Include="BinarySearchTreeOrNot.cs" />
+    <Compile Include="CircularArrayBinarySearch.cs" />
     <Compile Include="CodilityTest.cs" />
+    <Compile Include="DistinctArrayFormationBySwapping2Numbers.cs" />
     <Compile Include="ExcelColumnNameToNumber.cs" />
     <Compile Include="FindFibonacci.cs" />
     <Compile Include="InterviewQuestionsDriver.cs" />
@@ -57,6 +60,7 @@
     <Compile Include="LargestRecangleInHistogram.cs" />
     <Compile Include="LongestPalindromeSubstring.cs" />
     <Compile Include="LottoPairsDialPad.cs" />
+    <Compile Include="MinPlatfromsRequiredForRailways.cs" />
     <Compile Include="NQueens.cs" />
     <Compile Include="NStairCaseProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sorting\Sorting.csproj">
+      <Project>{375813CF-81BB-479C-8EDD-865101D1A29F}</Project>
+      <Name>Sorting</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

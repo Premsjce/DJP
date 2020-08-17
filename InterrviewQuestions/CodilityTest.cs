@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace InterviewQuestions
 {
@@ -27,8 +26,8 @@ namespace InterviewQuestions
 
             /*
              * -- write your code in PostgreSQL 9.4
-SELECT plays.id, plays.title, reservations.number_of_tickets
-FROM plays INNER JOIN reservations ON reservations.play_id = plays.id
+             * SELECT plays.id, plays.title, reservations.number_of_tickets
+             * FROM plays INNER JOIN reservations ON reservations.play_id = plays.id
 
              */
 
