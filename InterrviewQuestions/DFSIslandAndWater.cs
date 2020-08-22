@@ -6,12 +6,12 @@ namespace InterviewQuestions
     {
         public static void Driver()
         {
-            int[,] M = new int[,] { { 1, 1, 1, 0, 1 },
-                                    { 0, 0, 0, 0, 1 },
+            int[,] M = new int[,] { { 1, 1, 1, 1, 1 },
+                                    { 0, 0, 1, 0, 1 },
                                     { 1, 1, 1, 0, 1 },
-                                    { 0, 0, 0, 0, 0 },
-                                    { 1, 1, 1, 0, 1 } };
-            int max = 2;
+                                    { 0, 0, 0, 0, 1 },
+                                    { 1, 0, 1, 0, 1 } };
+            int max = 6;
             Console.WriteLine($"Number of islands gretaer that count {max} is: " + NoOfIslands(M, max));
         }
 
@@ -31,7 +31,6 @@ namespace InterviewQuestions
                         var count  = DFS(islands, row, column, visited, ROWSLENGTH, COLUMNSLENGTH);
                         if (count > max)
                             maxlandCount++;
-
                     }
                 }
             }

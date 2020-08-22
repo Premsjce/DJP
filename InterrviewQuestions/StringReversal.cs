@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InterviewQuestions
 {
@@ -19,7 +15,8 @@ namespace InterviewQuestions
         private static string RecursiverReverse(string inpt, int length)
         {
             if (length < 2)
-                return inpt[length - 1].ToString();
+                return inpt;
+
             return inpt[length-1].ToString() + RecursiverReverse(inpt, --length);
 
         }

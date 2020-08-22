@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures
 {
@@ -10,54 +6,52 @@ namespace DataStructures
     {
         public static void Driver()
         {
-            BinarySearchTree binarySearchTree = new BinarySearchTree();
-
-            binarySearchTree.Insert(16);
-            binarySearchTree.Insert(8);
-            binarySearchTree.Insert(24);
-            binarySearchTree.Insert(4);
-            binarySearchTree.Insert(12);
-            binarySearchTree.Insert(20);
-            binarySearchTree.Insert(28);
-            binarySearchTree.Insert(2);
-            binarySearchTree.Insert(6);
-            binarySearchTree.Insert(10);
-            binarySearchTree.Insert(14);
-            binarySearchTree.Insert(18);
-            binarySearchTree.Insert(22);
-            binarySearchTree.Insert(26);
-            binarySearchTree.Insert(30);
-            binarySearchTree.Insert(1);
-            binarySearchTree.Insert(3);
-            binarySearchTree.Insert(5);
-            binarySearchTree.Insert(7);
-            binarySearchTree.Insert(9);
-            binarySearchTree.Insert(11);
-            binarySearchTree.Insert(13);
-            binarySearchTree.Insert(15);
-            binarySearchTree.Insert(17);
-            binarySearchTree.Insert(19);
-            binarySearchTree.Insert(21);
-            binarySearchTree.Insert(23);
-            binarySearchTree.Insert(25);
-            binarySearchTree.Insert(27);
-            binarySearchTree.Insert(29);
-            binarySearchTree.Insert(31);
-
 
             
+            BinarySearchTree binarySearchTree = new BinarySearchTree();
+
+            //binarySearchTree.InsertRange(new int[] { 16, 8, 24, 4, 12, 20, 28, 2, 6, 10, 14, 18, 22, 26, 30, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25 });
+            //binarySearchTree.Insert(27);
+            //binarySearchTree.Insert(29);
+            //binarySearchTree.Insert(31);
+
+            binarySearchTree.InsertRange(new int[] { 4, 2, 6});
+            Console.WriteLine();
+
+            binarySearchTree.ValidBST();
 
             Console.WriteLine("In ordred traversing of Tree");
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Reverse Order traversing of Tree");
+            binarySearchTree.ReverseOrderTraversal(binarySearchTree.Root);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Pre Order traversing of Tree");
+            binarySearchTree.PreOrderTraversal(binarySearchTree.Root);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Post Order traversing of Tree");
+            binarySearchTree.PostOrderTraversal(binarySearchTree.Root);
+            Console.WriteLine();
+            Console.WriteLine();
+
             Console.WriteLine();
             Console.WriteLine("After deleting 4");
             binarySearchTree.Remove(binarySearchTree.Root, 4);
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
 
             Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("After deleting 27");
             binarySearchTree.Remove(binarySearchTree.Root, 27);
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
+            Console.WriteLine();
+
 
             Console.WriteLine();
             Console.WriteLine("Is is valid binary tree {0}", binarySearchTree.ValidBST());
@@ -98,6 +92,49 @@ namespace DataStructures
             return root;
         }
 
+        private void InsertIteratively(int data)
+        {
+            var currentNode = Root;
+            while (true)
+            {
+                if (data < currentNode.Data)
+                {
+                    if (currentNode.Left == null)
+                    {
+                        var newNode = new BinaryNode(data);
+                        currentNode.Left = newNode;
+                        return;
+                    }
+                    currentNode = currentNode.Left;
+                }
+                else if (data > currentNode.Data)
+                {
+                    if (currentNode.Right == null)
+                    {
+                        var newNode = new BinaryNode(data);
+                        currentNode.Right = newNode;
+                        return;
+                    }
+                    currentNode = currentNode.Right;
+                }
+                else
+                {
+                    Console.WriteLine("In Binary search tree, all the value mush be unique");
+                }
+            }
+        }
+
+        public void InsertRange(int[] range)
+        {
+            if (Root == null)
+            {
+                Root = new BinaryNode(range[0]);
+            }
+
+            for(int i = 1; i < range.Length;i++)
+                InsertRecursively(Root, range[i]);
+        }
+
         public void Insert(int data)
         {
             if (Root == null)
@@ -109,36 +146,8 @@ namespace DataStructures
             //Recursive approarch
             InsertRecursively(Root, data);
 
-            #region Iterative Approach
-            //var currentNode = Root;
-            //while (true)
-            //{
-            //    if (data < currentNode.Data)
-            //    {
-            //        if (currentNode.Left == null)
-            //        {
-            //            var newNode = new BinaryNode(data);
-            //            currentNode.Left = newNode;
-            //            return;
-            //        }
-            //        currentNode = currentNode.Left;
-            //    }
-            //    else if (data > currentNode.Data)
-            //    {
-            //        if (currentNode.Right == null)
-            //        {
-            //            var newNode = new BinaryNode(data);
-            //            currentNode.Right = newNode;
-            //            return;
-            //        }
-            //        currentNode = currentNode.Right;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("In Binary search tree, all the value mush be unique");
-            //    }
-            //}
-            #endregion
+            //Iterative Approach
+            //InsertIteratively(data);
         }
 
         public BinaryNode Search(int data)
@@ -172,13 +181,13 @@ namespace DataStructures
                 root.Right = Remove(root.Right, data);
             else
             {
-                //Case 1 : Only one or Zero child
+                //Case 1 : Only One or Zero child
                 if (root.Left == null)
                     return root.Right;
                 else if (root.Right == null)
                     return root.Left;
 
-                //Case 3 : 2 Children
+                //Case 2 : 2 Children
                 root.Data = GetMinNode(root.Right).Data;  //Or get Max in root's left subtree
                 root.Right = Remove(root.Right, root.Data);
             }
@@ -197,17 +206,57 @@ namespace DataStructures
             if (root.Left != null)
                 InOrderTraversal(root.Left);
 
-            Console.Write(root.Data + " ");
+            if (root != null)
+                Console.Write(root.Data + " ");
 
             if (root.Right != null)
                 InOrderTraversal(root.Right);
-            return;
+        }
+
+        public void PreOrderTraversal(BinaryNode root)
+        {
+            if (root != null)
+                Console.Write($"{root.Data} ");
+
+            if (root.Left != null)
+                PreOrderTraversal(root.Left);
+
+            if (root.Right != null)
+                PreOrderTraversal(root.Right);
+
+        }
+
+        public void PostOrderTraversal(BinaryNode root)
+        {
+
+            if (root.Left != null)
+                PostOrderTraversal(root.Left);
+
+            if (root.Right != null)
+                PostOrderTraversal(root.Right);
+
+            if (root != null)
+                Console.Write($"{root.Data} ");
+
+        }
+
+        public void ReverseOrderTraversal(BinaryNode root)
+        {
+            if (root.Right != null)
+                ReverseOrderTraversal(root.Right);
+
+            if (root != null)
+                Console.Write(root.Data + " ");
+
+            if (root.Left != null)
+                ReverseOrderTraversal(root.Left);
         }
 
         public bool ValidBST()
         {
-            return ValidBSTSimplified(Root, null, null);
-            
+            return SimpletBSTValidation(Root);
+            //return ValidBSTSimplified(Root, null, null);
+
             //return ValidBST(Root,int.MaxValue, int.MinValue);
         }
 
@@ -234,6 +283,20 @@ namespace DataStructures
                 return false;
 
             return ValidBSTSimplified(rootNode.Left, leftNode, rootNode) && ValidBSTSimplified(rootNode.Right, rootNode, rightNode);
+        }
+
+        public bool SimpletBSTValidation(BinaryNode root)
+        {
+            if (root == null)
+                return true;
+            if (root.Left != null && root.Left.Data > root.Data)
+                return false;
+
+            if (root.Right != null && root.Right.Data < root.Data)
+                return false;
+
+            return SimpletBSTValidation(root.Left) && SimpletBSTValidation(root.Right);
+
         }
 
     }

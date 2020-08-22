@@ -34,7 +34,7 @@ namespace InterviewQuestions
 
         private static bool IsSafe(int[,] mat, int[,] visited, int x, int y)
         {
-            return !(mat[x, y] == 0 || visited[x, y] != 0 );
+            return !(mat[x, y] == 0 || visited[x, y] != 0);
         }
 
         private static bool IsValid(int x, int y)

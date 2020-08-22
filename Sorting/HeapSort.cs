@@ -102,9 +102,8 @@ namespace Sorting
             HeapifyDown();
             return num;
         }
-
-
-        public int Peek() => baseHeap[baseHeap.Count - 1];
+        
+        public int Peek() => baseHeap[0];
 
         private void HeapifyUp()
         {
@@ -124,8 +123,7 @@ namespace Sorting
             }
 
         }
-
-
+        
         private void HeapifyDown()
         {
             int currentIndex = 0;

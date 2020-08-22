@@ -20,9 +20,10 @@ namespace InterviewQuestions
                 return 0;
 
             if (str[leftIndex] == str[rightIndex])
-                GetLongestPalindrome(str, leftIndex++, rightIndex--);
-                
-            throw new NotImplementedException();
+               return  GetLongestPalindrome(str, leftIndex++, rightIndex--);
+
+            return Math.Max(GetLongestPalindrome(str, leftIndex+1, rightIndex),
+                GetLongestPalindrome(str, leftIndex, rightIndex-1)) + 1;
         }
     }
 }

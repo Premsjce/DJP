@@ -31,7 +31,7 @@ namespace TechieDelight.Matrix
 
         private static int CalculateMaxSubMatrixSum(int[,] matrix, int M, int N, int K)
         {
-            //Create a sum matrix, where each cell will hold the sum value of all previous rows and cols + currecnt cell
+            //Create a sum matrix, where each cell will hold the sum value of all previous rows and cols + current cell
 
             int[,] sumMatrix = new int[M, N];
             sumMatrix[0, 0] = matrix[0, 0];
@@ -42,7 +42,10 @@ namespace TechieDelight.Matrix
                 {
                     if (row == 0 || col == 0)
                     {
-                        sumMatrix[row, col] = matrix[row, col] + sumMatrix[row, col];
+                        if (row == 0)
+                            sumMatrix[row, col] = matrix[row, col] + sumMatrix[row, col - 1];
+                        else
+                            sumMatrix[row, col] = matrix[row, col] + sumMatrix[row - 1, col];
                     }
                     else
                     {
@@ -53,32 +56,32 @@ namespace TechieDelight.Matrix
             int maxSUm = int.MinValue;
             int currTotal = 0;
             //Now, Summatrix holds the sum of all the elements
-            for (int row = K-1; row < M; row++)
+            for (int row = K - 1; row < M; row++)
             {
-                for (int col = K-1; col < N; col++)
+                for (int col = K - 1; col < N; col++)
                 {
                     currTotal = sumMatrix[row, col];
-                    if(row - K  > 0)
+                    if (row - K > 0)
                     {
                         currTotal -= sumMatrix[row - K, col];
                     }
-                    if(col-K > 0)
+                    if (col - K > 0)
                     {
                         currTotal -= sumMatrix[row, col - K];
                     }
-                    if(row-K > 0 && col-K > 0)
+                    if (row - K > 0 && col - K > 0)
                     {
                         currTotal += sumMatrix[row - K, col - K];
                     }
 
                     //int currentCellSum = sumMatrix[row - K, col] - sumMatrix[row, col - K] + sumMatrix[row - K, col - K];
-                    if (currTotal> maxSUm)
+                    if (currTotal > maxSUm)
                         maxSUm = currTotal;
                 }
             }
 
             return maxSUm;
         }
-        
+
     }
 }

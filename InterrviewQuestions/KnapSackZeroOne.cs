@@ -152,18 +152,11 @@ namespace InterviewQuestions
                 for (int col = 0; col <= capacity; col++)
                 {
                     if (row == 0 || col == 0)
-                    {
                         knapSack[row, col] = 0;
-                    }
                     else if (col < weights[row - 1])
-                    {
                         knapSack[row, col] = knapSack[row - 1, col];
-                    }
                     else
-                    {
                         knapSack[row, col] = Math.Max(profits[row - 1] + knapSack[row - 1, col - weights[row - 1]], knapSack[row - 1, col]);
-                    }
-
                 }
             }
 

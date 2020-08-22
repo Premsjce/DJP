@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 
 namespace InterviewQuestions
 {
@@ -22,7 +21,7 @@ namespace InterviewQuestions
             //Console.WriteLine($"Dynamic Program : {stopwatch.ElapsedMilliseconds}");
         }
 
-        //its recursice
+        //Its Recursive
         private static decimal NormalFibonnaci(int number)
         {
             if (number <= 1)
@@ -30,7 +29,7 @@ namespace InterviewQuestions
             return NormalFibonnaci(number - 1) + NormalFibonnaci(number - 2);
         }
 
-        //its iterative code
+        //its Iterative code Or called as Dynamic Programming
         private static decimal DynamicProgrammingFibonacci(int number)
         {
             //Storing one exra index for case 0

@@ -18,12 +18,10 @@ namespace InterviewQuestions
         //Say each following shot will be perfect 10
         private static int GetMinimumShotsForAverage(double[] currentScores)
         {
-            int noOfShots = currentScores.Length ;
+            int noOfShots = currentScores.Length;
             double currentSum = 0.0;
             foreach(var score in currentScores)
-            {
                 currentSum += score;
-            }
 
             double netAverage = currentSum / noOfShots;
 

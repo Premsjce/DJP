@@ -11,31 +11,28 @@ namespace DynamicProgramming
         {
 
             Stopwatch stopwatch = new Stopwatch();
-            long number = 100;
+            long number = 40;
 
-            //stopwatch.Start();
-            //var result = GetFibonacciRecursively(number);
-            //stopwatch.Stop();
-            //Console.WriteLine($"Recursive function for {number} takes {stopwatch.ElapsedMilliseconds / 1000} seconds, \nand result is {result}");
-            //Console.WriteLine();
+            stopwatch.Start();
+            var result = GetFibonacciRecursively(number);
+            stopwatch.Stop();
+            Console.WriteLine($"Recursive function for {number} takes {stopwatch.ElapsedMilliseconds / 1000} seconds, and result is {result}");
+            Console.WriteLine();
 
             stopwatch.Restart();
             resultExists = new long[number + 1];
-            var result = GetFibonacciByMemoization(number);
+            result = GetFibonacciByMemoization(number);
             stopwatch.Stop();
-            Console.WriteLine($"Memoization function for {number} takes {stopwatch.ElapsedMilliseconds } Milliseconds, \nand result is {result}");
+            Console.WriteLine($"Memoization function for {number} takes {stopwatch.ElapsedMilliseconds } Milliseconds, and result is {result}");
             Console.WriteLine();
-
-
+            
             stopwatch.Restart();
             resultExists = new long[number + 1];
             result = GetFibonaciByIteration(number);
             stopwatch.Stop();
-            Console.WriteLine($"Iteration function for {number} takes {stopwatch.ElapsedMilliseconds  } Milliseconds, \nand result is {result}");
+            Console.WriteLine($"Iteration function for {number} takes {stopwatch.ElapsedMilliseconds  } Milliseconds, and result is {result}");
             Console.WriteLine();
         }
-
-
 
         public static long GetFibonacciRecursively(long number)
         {

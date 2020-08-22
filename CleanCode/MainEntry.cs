@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanCode
 {
@@ -10,7 +6,9 @@ namespace CleanCode
     {
         static void Main(string[] args)
         {
-            ChainOfFunctions.Driver();
+            //ChainOfFunctions.Driver();
+            AsynchronousCoding.Driver();
+            Console.ReadLine();
         }
     }
 }

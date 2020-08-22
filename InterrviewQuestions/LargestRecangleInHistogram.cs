@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace InterviewQuestions
@@ -27,7 +26,7 @@ namespace InterviewQuestions
                 else
                 {
                     int currentMax = stack.Pop();
-                    int area = histogram[currentMax] * (stack.Count == 0 ? index - 1 : index - 1 - stack.Peek());
+                    int area = histogram[currentMax] * (stack.Count == 0 ? 1 : index - 1 - stack.Peek());
                     maxArea = area > maxArea ? area : maxArea;
                 }
             }

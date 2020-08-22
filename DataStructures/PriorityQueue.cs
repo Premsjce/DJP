@@ -18,8 +18,7 @@ namespace DataStructures
         /// <summary>
         /// Initializes a new instance of priority queue with default initial capacity and default priority comparer
         /// </summary>
-        public PriorityQueue()
-            : this(Comparer<TPriority>.Default)
+        public PriorityQueue() : this(Comparer<TPriority>.Default)
         {
         }
 
@@ -39,11 +38,8 @@ namespace DataStructures
         /// <param name="comparer">priority comparer</param>
         public PriorityQueue(int capacity, IComparer<TPriority> comparer)
         {
-            if (comparer == null)
-                throw new ArgumentNullException();
-
             _baseHeap = new List<KeyValuePair<TPriority, TValue>>(capacity);
-            _comparer = comparer;
+            _comparer = comparer ?? throw new ArgumentNullException();
         }
 
         /// <summary>
@@ -52,19 +48,15 @@ namespace DataStructures
         /// <param name="comparer">priority comparer</param>
         public PriorityQueue(IComparer<TPriority> comparer)
         {
-            if (comparer == null)
-                throw new ArgumentNullException();
-
             _baseHeap = new List<KeyValuePair<TPriority, TValue>>();
-            _comparer = comparer;
+            _comparer = comparer ?? throw new ArgumentNullException();
         }
 
         /// <summary>
         /// Initializes a new instance of priority queue with specified data and default priority comparer
         /// </summary>
         /// <param name="data">data to be inserted into priority queue</param>
-        public PriorityQueue(IEnumerable<KeyValuePair<TPriority, TValue>> data)
-            : this(data, Comparer<TPriority>.Default)
+        public PriorityQueue(IEnumerable<KeyValuePair<TPriority, TValue>> data): this(data, Comparer<TPriority>.Default)
         {
         }
 

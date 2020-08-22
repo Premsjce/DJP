@@ -36,7 +36,6 @@ namespace InterviewQuestions
         }
 
         #region Question 1
-
         
         // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
         public static int numberAmazonTreasureTrucks(int rows, int column, int[,] grid)
@@ -76,23 +75,19 @@ namespace InterviewQuestions
                 if (IsSafeAndValid(nextRow, nextCol, grid, visited))
                 {        
                     FindNumberOfPopUpsByDFS(nextRow, nextCol, grid, visited);
-
-                    //Else Back track and make visited as false;
-                    
+                    //Else Back track and make visited as false;   
                 }
             }
         }
 
         public static bool IsSafeAndValid(int row, int col, int[,] grid, bool[,] visited)
         {
-            return row >= 0 && row < grid.GetLength(0) && col >= 0 && col < grid.GetLength(1) &&
-                grid[row, col] == 1 && !visited[row, col];
+            return row >= 0 && row < grid.GetLength(0) && col >= 0 && col < grid.GetLength(1) && grid[row, col] == 1 && !visited[row, col];
         }
 
         // METHOD SIGNATURE ENDS
         #endregion
-
-
+            
         #region Question 2
 
         int CurrentRouter;

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsynchronousCoding.cs" />
     <Compile Include="ChainOfFunctions.cs" />
     <Compile Include="MainEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

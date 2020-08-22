@@ -10,11 +10,13 @@
             //Arrays.DutchNationalFlagProblem.Driver();
             //Arrays.SlidingWindowsToCountOnes.Driver();
             //Arrays.MaxDiffBetweenTwoElementsWithConstraint.Driver();
-            Arrays.MaxProfixWith2StockTransaction.Driver();
+            //Arrays.MaxProfixWith2StockTransaction.Driver();
+            //Arrays.EquilibriumIndex.Driver();
             
-            ////Matrix Related
+            
+            //Matrix Related
             //Matrix.MaxSumSubMatrix.Driver();
-            //Matrix.ShortPathWithConstraint.Driver();
+            Matrix.ShortPathWithConstraint.Driver();
 
             ////Divide and Conquer Related
             //DivideAndConquer.BinarySearch.Driver();

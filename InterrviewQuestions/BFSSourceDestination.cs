@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InterviewQuestions
 {
@@ -28,7 +25,7 @@ namespace InterviewQuestions
                                  { '*', '0', '*', '*' },
                                  { '0', 'd', '*', '*' },
                                  { '*', '*', '*', '*' }};
-            
+
             int result = DestinationDistance(charArray);
             Console.WriteLine(result);
         }
@@ -56,12 +53,30 @@ namespace InterviewQuestions
                 }
             }
 
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 var item = queue.Dequeue();
+
                 if (charArray[item.Row, item.Column] == 'd')
                     return item.Distance;
 
+                int[] ROW = { 0, 0, -1, 1 };
+                int[] COL = { -1, 1, 0, 0 };
+
+
+                for (int i = 0; i < 4; i++)
+                {
+                    int currentRow = item.Row + ROW[i];
+                    int currentCol = item.Column + COL[i];
+
+                    if (IsSafeAndValid(charArray, visited, currentRow, currentCol, ROWLENGTH, COLUMNLENGTH))
+                    {
+                        queue.Enqueue(new BFSNode(currentRow, currentCol, item.Distance + 1));
+                        visited[currentRow, currentCol] = true;
+                    }
+                }
+
+                /*
                 //Moving up
                 if(item.Row - 1 >= 0 && !visited[item.Row-1, item.Column])
                 {
@@ -89,9 +104,15 @@ namespace InterviewQuestions
                     queue.Enqueue(new BFSNode(item.Row, item.Column + 1, item.Distance + 1));
                     visited[item.Row, item.Column + 1] = true;
                 }
+                */
             }
 
             return -1;
+        }
+
+        private static bool IsSafeAndValid(char[,] charArray, bool[,] visited, int row, int col, int rLength, int cLength)
+        {
+            return row >= 0 && col >= 0 && row < rLength && col < cLength && !visited[row, col] && charArray[row, col] == '*';
         }
     }
 }
