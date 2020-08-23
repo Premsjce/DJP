@@ -60,6 +60,7 @@
     <Compile Include="LargestRecangleInHistogram.cs" />
     <Compile Include="LongestPalindromeSubstring.cs" />
     <Compile Include="LottoPairsDialPad.cs" />
+    <Compile Include="LRUCache.cs" />
     <Compile Include="MinPlatfromsRequiredForRailways.cs" />
     <Compile Include="NQueens.cs" />
     <Compile Include="NStairCaseProblem.cs" />

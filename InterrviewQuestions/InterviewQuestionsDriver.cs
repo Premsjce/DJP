@@ -33,7 +33,7 @@ namespace InterviewQuestions
             //AmazaonAmcat.Driver();
 
 
-            LongestPalindromeSubstring.Driver();
+            //LongestPalindromeSubstring.Driver();
 
             //National INstruments question
             //ArcherAverage.Driver();
@@ -42,6 +42,9 @@ namespace InterviewQuestions
             //CircularArrayBinarySearch.Driver();
 
             //MinPlatfromsRequiredForRailways.Driver();
+
+            LRUCache lRUCache = new LRUCache();
+            lRUCache.Drvier();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();

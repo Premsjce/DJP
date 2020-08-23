@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AsynchronousCoding.cs" />
     <Compile Include="ChainOfFunctions.cs" />
+    <Compile Include="GenericDelegates.cs" />
     <Compile Include="MainEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
