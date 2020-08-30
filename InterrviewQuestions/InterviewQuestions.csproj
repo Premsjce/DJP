@@ -70,6 +70,9 @@
     <Compile Include="RottenOragesInMatrix.cs" />
     <Compile Include="ShortestPathInMaze.cs" />
     <Compile Include="StringReversal.cs" />
+    <Compile Include="UiPath\QueueUsingStack.cs" />
+    <Compile Include="UiPath\SpecialStack.cs" />
+    <Compile Include="UiPath\StackUsingQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

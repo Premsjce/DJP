@@ -54,9 +54,7 @@ namespace SOLID
 
         public void Fly() => Console.WriteLine("Can Fly");
     }
-
-
-
+    
     //Now the solution is to create a finely grained and tuned interfaces as per client needs,
     //Which avoid any unnecessarry method implement requirements from force interfaces
 

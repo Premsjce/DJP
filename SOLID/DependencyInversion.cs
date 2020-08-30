@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID
 {
@@ -51,7 +49,7 @@ namespace SOLID
 
     #region Low Level Module (Deals with the models classes)
 
-    public class EmployeeManager : IEmpleyeeSearchable
+    public class EmployeeManager : IEmployeeSearchable
     {
         private List<Employee> employees;
 
@@ -104,7 +102,7 @@ namespace SOLID
 
     #region Implementing the DIP
 
-    public interface IEmpleyeeSearchable
+    public interface IEmployeeSearchable
     {
         IEnumerable<Employee> GetEmployees(Gender gender, Position position);
     }

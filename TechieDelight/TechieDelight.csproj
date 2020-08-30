@@ -53,6 +53,7 @@
     <Compile Include="Arrays\SubArrayWithZeroSum.cs" />
     <Compile Include="Backtracking\NQueens.cs" />
     <Compile Include="DivideAndConquer\BinarySearch.cs" />
+    <Compile Include="DP\LongestCommonSubsequence.cs" />
     <Compile Include="Matrix\MaxSumSubMatrix.cs" />
     <Compile Include="Matrix\ShortPathWithConstraint.cs" />
     <Compile Include="Program.cs" />

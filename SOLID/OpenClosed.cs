@@ -54,9 +54,7 @@ namespace SOLID
             double totalSalary = 0D;
 
             foreach (var dev in developerReports)
-            {
                 totalSalary += dev.HourlyCharge * dev.TotalHoursWorked;
-            }
 
             return totalSalary;
         }

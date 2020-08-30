@@ -24,12 +24,22 @@ namespace DesignPatterns
             subscriberOne.Subscribe(faceBook);
             subscriberTwo.Subscribe(faceBook);
             subscriberThree.Subscribe(faceBook);
-
-
+            
             Task task1 = Task.Factory.StartNew(() => youtube.Publish());
             Task task2 = Task.Factory.StartNew(() => faceBook.Publish());
-            Task.WaitAll(task1, task2);
 
+            subscriberOne.UnSubscribe(youtube);
+            subscriberTwo.UnSubscribe(youtube);
+            subscriberThree.UnSubscribe(youtube);
+
+            subscriberOne.UnSubscribe(faceBook);
+            subscriberTwo.UnSubscribe(faceBook);
+            subscriberThree.UnSubscribe(faceBook);
+
+            youtube.Publish();
+            faceBook.Publish();
+
+            Task.WaitAll(task1, task2);
         }
     }
 

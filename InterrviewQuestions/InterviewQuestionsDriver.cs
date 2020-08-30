@@ -43,8 +43,13 @@ namespace InterviewQuestions
 
             //MinPlatfromsRequiredForRailways.Driver();
 
-            LRUCache lRUCache = new LRUCache();
-            lRUCache.Drvier();
+            //LRUCache lRUCache = new LRUCache();
+            //lRUCache.Drvier();
+
+            //UiPath
+            //UiPath.StackUsingQueue.Driver();
+            //UiPath.QueueUsingStack.Driver();
+            UiPath.SpecialStack.Driver();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();
