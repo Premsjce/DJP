@@ -6,12 +6,12 @@ namespace InterviewQuestions
     {
         public static void Driver()
         {
-            int[,] M = new int[,] { { 1, 1, 1, 1, 1 },
-                                    { 0, 0, 1, 0, 1 },
+            int[,] M = new int[,] { { 1, 1, 0, 1, 1 },
+                                    { 0, 0, 0, 0, 1 },
                                     { 1, 1, 1, 0, 1 },
                                     { 0, 0, 0, 0, 1 },
                                     { 1, 0, 1, 0, 1 } };
-            int max = 6;
+            int max = 1;
             Console.WriteLine($"Number of islands gretaer that count {max} is: " + NoOfIslands(M, max));
         }
 
@@ -21,6 +21,7 @@ namespace InterviewQuestions
             var COLUMNSLENGTH = islands.GetLength(1);
             bool[,] visited = new bool[ROWSLENGTH, COLUMNSLENGTH];
             int maxlandCount = 0;
+            int islandCount = 0;
 
             for (int row = 0; row < ROWSLENGTH; ++row)
             {
@@ -29,8 +30,9 @@ namespace InterviewQuestions
                     if (islands[row, column] == 1 && !visited[row, column])
                     {
                         var count  = DFS(islands, row, column, visited, ROWSLENGTH, COLUMNSLENGTH);
-                        if (count > max)
+                        if (count >= max)
                             maxlandCount++;
+                        ++islandCount;
                     }
                 }
             }
@@ -45,7 +47,7 @@ namespace InterviewQuestions
             //Sorrounding islands reaching vector. 8 values will be there around islands all the time
             int[] rowNumber = new int[] { -1, -1, -1,  0, 0,  1, 1, 1 };
             int[] colNumber = new int[] { -1,  0,  1, -1, 1, -1, 0, 1 };
-            var result = 1;
+            var currentIslandCount = 1;
 
             //Recursively call for all connected neighbours
             for (int i = 0; i < 8; ++i)
@@ -54,11 +56,11 @@ namespace InterviewQuestions
                 int nextCol = column + colNumber[i];
                 if (nextRow >= 0 && nextRow < ROWSLENGTH && nextCol >= 0 && nextCol < COLUMNSLENGTH && islands[nextRow, nextCol] == 1 && !visited[nextRow, nextCol])
                 {
-                    result += DFS(islands, nextRow, nextCol, visited, ROWSLENGTH, COLUMNSLENGTH) + 1;
+                    currentIslandCount += DFS(islands, nextRow, nextCol, visited, ROWSLENGTH, COLUMNSLENGTH);
                 }   
             }
 
-            return result;
+            return currentIslandCount;
         }
     }
 }

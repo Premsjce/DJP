@@ -14,8 +14,8 @@ namespace InterviewQuestions
 
         private static string RecursiverReverse(string inpt, int length)
         {
-            if (length < 2)
-                return inpt;
+            if (length == 1)
+                return inpt[length].ToString();
 
             return inpt[length-1].ToString() + RecursiverReverse(inpt, --length);
 

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sorting
 {
@@ -137,7 +134,6 @@ namespace Sorting
                     var temp = baseHeap[leftChild];
                     baseHeap[leftChild] = baseHeap[currentIndex];
                     baseHeap[currentIndex] = temp;
-
                     currentIndex = leftChild;
                 }
                 else
@@ -145,7 +141,6 @@ namespace Sorting
                     var temp = baseHeap[rightChild];
                     baseHeap[rightChild] = baseHeap[currentIndex];
                     baseHeap[currentIndex] = temp;
-
                     currentIndex = rightChild;
                 }
                 leftChild = (currentIndex * 2) + 1;

@@ -6,19 +6,12 @@ namespace DataStructures
     {
         public static void Driver()
         {
-
-            
             BinarySearchTree binarySearchTree = new BinarySearchTree();
 
-            //binarySearchTree.InsertRange(new int[] { 16, 8, 24, 4, 12, 20, 28, 2, 6, 10, 14, 18, 22, 26, 30, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25 });
-            //binarySearchTree.Insert(27);
-            //binarySearchTree.Insert(29);
-            //binarySearchTree.Insert(31);
-
-            binarySearchTree.InsertRange(new int[] { 4, 2, 6});
-            Console.WriteLine();
-
-            binarySearchTree.ValidBST();
+            binarySearchTree.InsertRange(new int[] { 16, 8, 24, 4, 12, 20, 28, 2, 6, 10, 14, 18, 22, 26, 30, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25 });
+            binarySearchTree.Insert(27);
+            binarySearchTree.Insert(29);
+            binarySearchTree.Insert(31);
 
             Console.WriteLine("In ordred traversing of Tree");
             binarySearchTree.InOrderTraversal(binarySearchTree.Root);
@@ -201,6 +194,25 @@ namespace DataStructures
             return GetMinNode(root.Left);
         }
 
+        private BinaryNode GetMaxNode(BinaryNode root)
+        {
+            //Iteratice search for max note (right most node in tree)
+            if(root == null)
+            {
+                Console.WriteLine("Thera are no nodes tree");
+                return root;
+            }
+
+            var currentNode = root;
+            while(currentNode.Right != null)
+            {
+                currentNode = currentNode.Right;
+            }
+
+            return currentNode;
+        }
+
+
         public void InOrderTraversal(BinaryNode root)
         {
             if (root.Left != null)
@@ -276,10 +288,10 @@ namespace DataStructures
             if (rootNode == null)
                 return true;
 
-            if (leftNode != null && rootNode.Data <= leftNode.Data)
+            if (leftNode != null && leftNode.Data >= rootNode.Data)
                 return false;
 
-            if (rightNode != null && rootNode.Data >= rightNode.Data)
+            if (rightNode != null && rightNode.Data <= rootNode.Data)
                 return false;
 
             return ValidBSTSimplified(rootNode.Left, leftNode, rootNode) && ValidBSTSimplified(rootNode.Right, rootNode, rightNode);

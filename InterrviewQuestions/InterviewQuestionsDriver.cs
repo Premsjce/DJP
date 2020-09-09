@@ -6,6 +6,8 @@ namespace InterviewQuestions
     {
         static void Main(string[] args)
         {
+
+            AmazonMashupCost.Driver();
             //BinarySearchTreeOrNot.Driver();
             //RemoveDuplicatesFromString.Driver();
             //FindFibonacci.Driver();
@@ -49,7 +51,7 @@ namespace InterviewQuestions
             //UiPath
             //UiPath.StackUsingQueue.Driver();
             //UiPath.QueueUsingStack.Driver();
-            UiPath.SpecialStack.Driver();
+            //UiPath.SpecialStack.Driver();
 
             Console.WriteLine($"Press enter to close.....");
             Console.ReadLine();

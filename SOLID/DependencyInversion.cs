@@ -12,8 +12,7 @@ namespace SOLID
      * 
      * having this idea in mind, Dependeny Principle states thata
      * 1. Higher level and lower level modules should depend on abstractions
-     * 2. Abstractions should not depend on details, but details should depend on abstraction
-     * 
+     * 2. Abstractions should not depend on details, but details should depend on abstraction    
      * https://code-maze.com/dependency-inversion-principle/
      */
 
@@ -112,7 +111,6 @@ namespace SOLID
 
     class DependencyInversion
     {
-
         public static void Driver()
         {
             var empManager = new EmployeeManager();

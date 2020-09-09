@@ -9,36 +9,31 @@ namespace CleanCode
     {
         private const string URL = "https://docs.microsoft.com/en-us/dotnet/csharp/csharp";
 
-        public async static void Driver()
+        public static void Driver()
         {
             DoSynchronousWork();
             var someTask = DoSomethingAsync();
             DoSynchronousWorkAfterAwait();
-            
+
             var calcTask = CalulateTaxAsync(5.5f);
 
             calcTask.Wait(); //this is a blocking call, use it only on Main method
 
             DoSynchronousWorkAfterAwait();
-
-            someTask.Wait(); 
-            
+            someTask.Wait();
 
             Console.ReadLine();
         }
 
-        public static void DoSynchronousWork()
-        {
-            Console.WriteLine("1. First Call of Synchronous working");
-        }
+        public static void DoSynchronousWork() => Console.WriteLine("1. First Call of Synchronous working");
 
-
-        private static async Task DoSomethingAsync()
+        private static async Task<int> DoSomethingAsync()
         {
             Console.WriteLine($"2. Async task has started...");
-            //await GetStringAsync(); // we are awaiting the Async Method GetStringAsync
-            //task.Wait();
+            var stringtask =  await GetStringAsync(); // we are awaiting the Async Method GetStringAsync
 
+            //task.Wait();
+            var stringLength = 0;
             using (var httpClient = new HttpClient())
             {
                 Console.WriteLine($"3. Awaiting the result of GetStringAsync of Http Client...");
@@ -50,11 +45,15 @@ namespace CleanCode
                 Console.WriteLine($"4. The awaited task has completed. Let's get the content length...");
                 Console.WriteLine($"5. The length of http Get for {URL}");
                 Console.WriteLine($"6. {result.Length} character");
+                stringLength = result.Length;
             }
+
+            return stringLength;
         }
 
-        private async static Task GetStringAsync()
+        private async static Task<int> GetStringAsync()
         {
+            var strLengt = 0;
             using (var httpClient = new HttpClient())
             {
                 Console.WriteLine("3. Awaiting the result of GetStringAsync of Http Client...");
@@ -66,7 +65,10 @@ namespace CleanCode
                 Console.WriteLine($"4. The awaited task has completed. Let's get the content length...");
                 Console.WriteLine($"5. The length of http Get for {URL}");
                 Console.WriteLine($"6. {result.Length} character");
+                strLengt = result.Length;
             }
+
+            return strLengt;
         }
 
         private static void DoSynchronousWorkAfterAwait()
@@ -100,7 +102,8 @@ namespace CleanCode
             return result;
 
         }
-        public async static void AsyncDriver()
+
+        public static void AsyncDriver()
         {
             AsyncSample asyncSample = new AsyncSample();
             Console.WriteLine("Before calling async method");

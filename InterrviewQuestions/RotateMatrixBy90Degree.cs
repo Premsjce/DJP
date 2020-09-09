@@ -17,22 +17,18 @@ namespace InterviewQuestions
                 };
 
             Console.WriteLine("Before Transormation");
-            int M = matrix.GetLength(0);
-            int N = matrix.GetLength(1);
-            for (int row = 0; row < M; row++)
-            {
-                for (int col = 0; col < N; col++)
-                {
-                    Console.Write(matrix[row, col] + " ");
-                }
-                Console.WriteLine();
-            }
+            PrintMatrix(matrix);
 
+            RotateMatrixInplace(matrix);
 
             Console.WriteLine("After Transormation");
-            RotateMatrixInplace(matrix);
-            M = matrix.GetLength(0);
-            N = matrix.GetLength(1);
+            PrintMatrix(matrix);
+        }
+
+        private static void PrintMatrix(int[,] matrix)
+        {
+            int M = matrix.GetLength(0);
+            int N = matrix.GetLength(1);
             for (int row = 0; row < M; row++)
             {
                 for (int col = 0; col < N; col++)
@@ -67,12 +63,12 @@ namespace InterviewQuestions
 
             for (int row = 0; row < (M / 2); row++)
             {
-                for (int col = row; col < (M - row - 1); col++)
+                for (int col = row; col < (M - 1 - row); col++)
                 {
                     int temp = matrix[row, col];
-                    matrix[row, col] = matrix[M - 1- col, row];
-                    matrix[M - 1- col, row] = matrix[M - 1- row, M - 1 - col];
-                    matrix[M - 1 - row, M - 1 - col] = matrix[col, M - 1- row];
+                    matrix[row, col] = matrix[M - 1 - col, row];
+                    matrix[M - 1 - col, row] = matrix[M - 1 - row, M - 1 - col];
+                    matrix[M - 1 - row, M - 1 - col] = matrix[col, M - 1 - row];
                     matrix[col, M - 1 - row] = temp;
                 }
             }

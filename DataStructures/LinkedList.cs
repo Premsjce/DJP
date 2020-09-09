@@ -36,7 +36,7 @@ namespace DataStructures
         public void AddFirst(int data)
         {
             var newNode = new Node(data);
-            newNode.Next = Head;
+            newNode.Next = Head.Next;
             Head = newNode;
             Count++;
         }

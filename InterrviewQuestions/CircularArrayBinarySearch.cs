@@ -12,7 +12,7 @@ namespace InterviewQuestions
             Console.WriteLine($"Index of the number to be found is : {result}");
         }
 
-        //Idea is to find the pivot by binar search
+        //Idea is to find the pivot by binary search
         //Then divide the array into 2 sub arrays
         //Find the element in sub array by binary searh
         private static int GetItemInLogTime(int[] circularArray, int numberToFind)

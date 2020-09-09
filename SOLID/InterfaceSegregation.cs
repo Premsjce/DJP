@@ -83,7 +83,7 @@ namespace SOLID
         public void Fly() => Console.WriteLine("Flying high the plane");
     }
 
-    class InterfaceSegregation
+    public class InterfaceSegregation
     {
     }
 }

@@ -55,15 +55,16 @@ namespace InterviewQuestions
 
             for (int item = 0; item < 4; item++)
             {
-                if (IsValid(i + R[item], j + C[item]) && IsSafe(mat, visited, i + R[item], j + C[item]))
+                int nextRow = i + R[item];
+                int nextCol = j + C[item];
+                if (IsValid(nextRow,nextCol ) && IsSafe(mat, visited, nextRow, nextCol))
                 {
-                    minDist = FindShortestPath(mat, visited, i + R[item], j + C[item], x, y, minDist, distance + 1);
+                    minDist = FindShortestPath(mat, visited, nextRow, nextCol, x, y, minDist, distance + 1);
                 }
             }
 
             //Backtracking and resetting to 0
             visited[i, j] = 0;
-
             return minDist;
         }
     }

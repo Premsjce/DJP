@@ -23,6 +23,7 @@ namespace Searching
     {
         public Employee BuildEmployeeGraph()
         {
+            //Eva is root of the tree
             Employee Eva = new Employee("Eva");
             Employee Sophia = new Employee("Sophia");
             Employee Brian = new Employee("Brian");

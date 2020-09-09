@@ -23,8 +23,8 @@ namespace InterviewQuestions
 
             Stack<int> stack = new Stack<int>();
             int maxArea = 0;
-            int index;
-            for (index = 0; index < histogram.Length;)
+            int index = 0;
+            while (index < histogram.Length)
             {
                 if(stack.Count == 0 || histogram[index] >= histogram[stack.Peek()])
                 {

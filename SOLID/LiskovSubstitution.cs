@@ -13,7 +13,6 @@ namespace SOLID
      * What this means essentially, is that we should put an effort to create such derived class objects which can replace objects of the base class
      * without modifying its behavior. If we don’t, our application might end up being broken.
      * https://code-maze.com/liskov-substitution-principle/
-     * 
      */
 
     public class SumCalculator

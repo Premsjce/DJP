@@ -10,7 +10,7 @@ namespace InterviewQuestions
             Console.WriteLine(GetLongestPalindrome(str, 0, str.Length - 1));
 
             //Can be done in O(n^2)time
-            //brue force apporach will take O(n^3) time
+            //brute force apporach will take O(n^3) time
             //Manacher's algorithms will take O(n) linear time
         }
 

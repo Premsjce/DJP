@@ -51,14 +51,9 @@ namespace InterviewQuestions
         public void PutEntry(int key, int value)
         {
             //Key already exists in the hashmap, then just update the entry to move it to top of list
-            if (HashMap.ContainsKey(key))
-            {
-                Entry entry = HashMap[key];
-                entry.Value = value;
-                RemoveEntry(entry);
-                AddToTop(entry);
+            if (GetEntry(key) != -1)
                 return;
-            }
+           
 
             Entry newNode = new Entry();
             newNode.Left = null;
@@ -77,8 +72,7 @@ namespace InterviewQuestions
 
             HashMap.Add(key, newNode);
         }
-
-
+        
         private void AddToTop(Entry entry)
         {
             entry.Right = Start;

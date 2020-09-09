@@ -6,8 +6,7 @@
 /// </summary>
 namespace TechieDelight.Matrix
 {
-    //Given a M*N Matirx, Calculate maximum sum of submatrix  of size K, in O(M*N) time complexity
-    //Where 0 < K < (M ,N) 
+    //Given a M*N Matirx, Calculate maximum sum of submatrix  of size K, in O(M*N) time complexity Where 0 < K < (M ,N) 
     public class MaxSumSubMatrix
     {
         public static void Driver()
@@ -53,8 +52,9 @@ namespace TechieDelight.Matrix
                     }
                 }
             }
-            int maxSUm = int.MinValue;
+            int maxSum = int.MinValue;
             int currTotal = 0;
+            
             //Now, Summatrix holds the sum of all the elements
             for (int row = K - 1; row < M; row++)
             {
@@ -75,12 +75,12 @@ namespace TechieDelight.Matrix
                     }
 
                     //int currentCellSum = sumMatrix[row - K, col] - sumMatrix[row, col - K] + sumMatrix[row - K, col - K];
-                    if (currTotal > maxSUm)
-                        maxSUm = currTotal;
+                    if (currTotal > maxSum)
+                        maxSum = currTotal;
                 }
             }
 
-            return maxSUm;
+            return maxSum;
         }
 
     }

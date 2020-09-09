@@ -7,8 +7,8 @@ namespace CleanCode
         static void Main(string[] args)
         {
             //ChainOfFunctions.Driver();
-            //AsynchronousCoding.Driver();
-            GenericDelegates.Driver();
+            AsynchronousCoding.Driver();
+            //GenericDelegates.Driver();
 
             Console.ReadLine();
         }

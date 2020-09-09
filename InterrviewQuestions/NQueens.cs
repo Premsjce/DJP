@@ -8,7 +8,7 @@ namespace InterviewQuestions
 
         private static bool isSafe(char[,] mat, int row, int col)
         {
-            //Check if Q is in Same Column
+            //Check if Q is in Same Col
             for (int i = 0; i < row; i++)
             {
                 if (mat[i, col] == 'Q')

@@ -16,7 +16,7 @@ namespace InterviewQuestions
                 { 0, 0, 0, 0, 0 },
                 { 1, 1, 1, 0, 1 }
             };
-            //Console.WriteLine("Number of islands is: " + numberAmazonTreasureTrucks(grid.GetLength(0), grid.GetLength(1), grid));
+            //Console.WriteLine("Number of treasure truck are: " + numberAmazonTreasureTrucks(grid.GetLength(0), grid.GetLength(1), grid));
 
             var links = new List<List<int>>();
 
@@ -62,6 +62,19 @@ namespace InterviewQuestions
 
         private static void FindNumberOfPopUpsByDFS(int currentRow, int currentCol, int[,] grid, bool[,] visited)
         {
+
+            /*
+             * 
+            int[,] grid = new int[,] 
+            { 
+                { 1, 1, 0, 0, 0 },
+                { 0, 1, 0, 0, 1 },
+                { 1, 0, 0, 1, 1 },
+                { 0, 0, 0, 0, 0 },
+                { 1, 1, 1, 0, 1 }
+            };
+             */
+
             visited[currentRow, currentCol] = true;
 
             int[] ROWS = { 0, 0, -1, 1 };

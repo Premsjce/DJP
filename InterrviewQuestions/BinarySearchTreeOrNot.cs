@@ -57,10 +57,10 @@ namespace InterviewQuestions
             if (rootNode == null)
                 return true;
 
-            if (leftNode != null && leftNode.Data > rootNode.Data)
+            if (leftNode != null && leftNode.Data >= rootNode.Data)
                 return false;
 
-            if (rightNode != null && rightNode.Data < rootNode.Data)
+            if (rightNode != null && rightNode.Data <= rootNode.Data)
                 return false;
 
             return IsValidBinarySearchTree(rootNode.Left, leftNode, rootNode) && IsValidBinarySearchTree(rootNode.Right, rootNode, rightNode);

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID
 {
@@ -67,7 +65,7 @@ namespace SOLID
      * This means that we are violating the SRP and our class has more than one reason to change in the future. 
      */
 
-    class SingleResponsibility
+    public class SingleResponsibility
     {
         public static void Driver()
         {

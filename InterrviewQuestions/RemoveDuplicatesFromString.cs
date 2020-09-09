@@ -23,7 +23,7 @@ namespace InterviewQuestions
             var tempAray = string.Empty;
             int curentIndex = 1;
             tempAray += array[0];
-            while (curentIndex != array.Length)
+            while (curentIndex < array.Length)
             {
                 if (array[curentIndex] != array[curentIndex - 1])
                     tempAray += array[curentIndex];

@@ -41,6 +41,8 @@ namespace InterviewQuestions
 
             for (int row = 0; row < ROWLENGTH; row++)
             {
+                if (queue.Count > 0)
+                    break;
                 for (int column = 0; column < COLUMNLENGTH; column++)
                 {
                     if (charArray[row, column] == '0')
@@ -49,6 +51,7 @@ namespace InterviewQuestions
                     {
                         source = new BFSNode(row, column, 0);
                         queue.Enqueue(source);
+                        break;
                     }
                 }
             }
@@ -75,36 +78,6 @@ namespace InterviewQuestions
                         visited[currentRow, currentCol] = true;
                     }
                 }
-
-                /*
-                //Moving up
-                if(item.Row - 1 >= 0 && !visited[item.Row-1, item.Column])
-                {
-                    queue.Enqueue(new BFSNode(item.Row - 1, item.Column, item.Distance + 1));
-                    visited[item.Row - 1, item.Column] = true;
-                }
-
-                //Moving down
-                if (item.Row + 1 < ROWLENGTH && !visited[item.Row + 1, item.Column])
-                {
-                    queue.Enqueue(new BFSNode(item.Row + 1, item.Column, item.Distance + 1));
-                    visited[item.Row + 1, item.Column] = true;
-                }
-
-                //Moving left
-                if (item.Column -1 >= 0 && !visited[item.Row , item.Column - 1])
-                {
-                    queue.Enqueue(new BFSNode(item.Row, item.Column - 1, item.Distance + 1));
-                    visited[item.Row, item.Column -1] = true;
-                }
-
-                //Moving left
-                if (item.Column + 1 < COLUMNLENGTH && !visited[item.Row, item.Column + 1])
-                {
-                    queue.Enqueue(new BFSNode(item.Row, item.Column + 1, item.Distance + 1));
-                    visited[item.Row, item.Column + 1] = true;
-                }
-                */
             }
 
             return -1;

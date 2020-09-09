@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechieDelight", "TechieDeli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID", "SOLID\SOLID.csproj", "{F546D3B2-5409-4946-988A-866F2A2CA688}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeeksForGeeks", "GeeksForGeeks\GeeksForGeeks.csproj", "{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{F546D3B2-5409-4946-988A-866F2A2CA688}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F546D3B2-5409-4946-988A-866F2A2CA688}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F546D3B2-5409-4946-988A-866F2A2CA688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
