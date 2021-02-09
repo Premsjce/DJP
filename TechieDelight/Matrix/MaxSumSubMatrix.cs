@@ -82,6 +82,5 @@ namespace TechieDelight.Matrix
 
             return maxSum;
         }
-
     }
 }

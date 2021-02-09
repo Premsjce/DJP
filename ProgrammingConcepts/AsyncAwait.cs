@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ProgrammingConcepts
 {
-    class AsyncAwait
+    public class AsyncAwait
     {
         private const string URL = "https://docs.microsoft.com/en-us/dotnet/csharp/csharp";
 

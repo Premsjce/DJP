@@ -22,9 +22,7 @@ namespace InterviewQuestions
             for (int i = 0; i < length; i++)
             {
                 var pos = Math.Pow(26, i);
-                char ch = columnName[basePos];
-                var temp = ch - 64;
-                result += temp * pos;
+                result += (columnName[basePos] - 'A') * pos;
                 basePos--;
             }
             return result;

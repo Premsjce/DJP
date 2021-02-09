@@ -39,7 +39,8 @@ namespace DynamicProgramming
         private static int CalculateProfit(int[] value, int len)
         {
             //Boundary or base condition checking
-            if (len <= 0) return 0;
+            if (len <= 0)
+                return 0;
             int max = -1;
 
             for (int i = 0; i < len; i++)

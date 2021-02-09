@@ -68,8 +68,7 @@ namespace TechieDelight.Arrays
             //To return the index for which the replacement has to be done is stored in currentZeroIndex variable
             return currentZeroIndex;
         }
-
-
+        
         private static int GetMaxOneByReplacingOneZeroRevision(int[] array)
         {
             int leftPointer = 0, zerosCount = 0, onesCount = 0;
@@ -83,6 +82,7 @@ namespace TechieDelight.Arrays
                     zerosCount += 1;
                 }
 
+                //Stabilizing the window
                 if(zerosCount == 2)
                 {
                     while(array[leftPointer] != 0)

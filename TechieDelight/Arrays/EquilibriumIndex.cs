@@ -32,6 +32,7 @@ namespace TechieDelight.Arrays
             return indices;
         }
 
+        //Extension method to convert the List<int> to string
         public static string ListToString(this List<int> list)
         {
             string output = "[";
