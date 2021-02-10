@@ -2,7 +2,7 @@
 
 namespace TechieDelight
 {
-    class Program
+    class Driver
     {
         static void Main(string[] args)
         {

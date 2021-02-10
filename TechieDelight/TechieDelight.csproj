@@ -56,7 +56,7 @@
     <Compile Include="DP\LongestCommonSubsequence.cs" />
     <Compile Include="Matrix\MaxSumSubMatrix.cs" />
     <Compile Include="Matrix\ShortPathWithConstraint.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
