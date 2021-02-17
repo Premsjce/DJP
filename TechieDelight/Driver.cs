@@ -1,4 +1,5 @@
-﻿using TechieDelight.DP;
+﻿using TechieDelight.Arrays;
+using TechieDelight.DP;
 using TechieDelight.String;
 
 namespace TechieDelight
@@ -29,7 +30,8 @@ namespace TechieDelight
 
             //Dynamic Programming
             //LongestCommonSubsequence.Driver();
-            RotatedPalindrome.Driver();
+            //RotatedPalindrome.Driver();
+            DuplicateInLimitedRange.Driver();
         }
     }
 }
