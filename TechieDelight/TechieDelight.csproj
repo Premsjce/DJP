@@ -58,6 +58,8 @@
     <Compile Include="Matrix\ShortPathWithConstraint.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\RotatedPalindrome.cs" />
+    <Compile Include="String\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

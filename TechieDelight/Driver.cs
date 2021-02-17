@@ -1,4 +1,5 @@
 ﻿using TechieDelight.DP;
+using TechieDelight.String;
 
 namespace TechieDelight
 {
@@ -27,7 +28,8 @@ namespace TechieDelight
             //Backtracking.NQueens.Driver();
 
             //Dynamic Programming
-            LongestCommonSubsequence.Driver();
+            //LongestCommonSubsequence.Driver();
+            RotatedPalindrome.Driver();
         }
     }
 }

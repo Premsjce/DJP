@@ -26,8 +26,8 @@ namespace TechieDelight.Matrix
 
             int sourceX = 0;
             int sourceY = 0;
-            int destX = ROW - 1;
-            int destY = COL - 1;
+            int destX = 2;
+            int destY = 0;
             bool[,] visited = new bool[ROW, COL];
 
             for (int row = 0; row < ROW; row++)
@@ -36,13 +36,13 @@ namespace TechieDelight.Matrix
                 {
                     if (row == sourceX && sourceY == col)
                     {
-                        findShortestPath(matrix, sourceX, sourceY, destX, destY, visited);
+                        FindShortestPath(matrix, sourceX, sourceY, destX, destY, visited);
                     }
                 }
             }
         }
 
-        private static void findShortestPath(int[,] matrix, int sourceX, int sourceY, int destX, int destY, bool[,] visited)
+        private static void FindShortestPath(int[,] matrix, int sourceX, int sourceY, int destX, int destY, bool[,] visited)
         {
             if (sourceX == destX && sourceY == destY)
             {
@@ -52,6 +52,8 @@ namespace TechieDelight.Matrix
 
             int[] ROWS = { 0, 0, -1, 1 };
             int[] COLS = { -1, 1, 0, 0 };
+            //int[] ROWS = { -1, -1, -1, 0, 0, 0, 1, 1, 1 };
+            //int[] COLS = { -1, 0, 1, -1, 0, 1, -1, 0, 1 };
 
             var sourceNode = new MatrixNode(sourceX, sourceY, 0);
             Queue<MatrixNode> queue = new Queue<MatrixNode>();
