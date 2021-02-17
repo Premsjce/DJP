@@ -12,9 +12,6 @@
         {
             isPalindrome = true;
 
-            if (str.Length <= 1)
-                return str;
-
             if (str.IsPalindrome())
                 return str;
 
