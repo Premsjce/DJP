@@ -54,7 +54,7 @@
 
     public abstract class TVRemoteControl
     {
-        private ITV tV;
+        private readonly ITV tV = default;
         public void PowerOn() => tV.PowerOn();
         public void PowerOff() => tV.PowerOff();
         public void SetChannel(int channel) => tV.ChangeChannel(channel);

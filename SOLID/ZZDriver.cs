@@ -7,7 +7,6 @@ namespace SOLID
         static void Main(string[] args)
         {
             int i = 5;
-            int j = 6;
             calc(ref i);
             calc(6);
             Console.WriteLine(i);

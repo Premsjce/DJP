@@ -49,7 +49,7 @@ namespace Scratch
 
         public override string ToString()
         {
-            return $"ID : {EmpId}\n Name : {EmpName}\n Earns : {Salary}");
+            return $"ID : {EmpId}\n Name : {EmpName}\n Earns : {Salary}";
         }
     }
 }
