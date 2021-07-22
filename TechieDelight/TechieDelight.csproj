@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays\BinaryArrayLinearSort.cs" />
     <Compile Include="Arrays\DuplicateInLimitedRange.cs" />
     <Compile Include="Arrays\DutchNationalFlagProblem.cs" />
     <Compile Include="Arrays\EquilibriumIndex.cs" />

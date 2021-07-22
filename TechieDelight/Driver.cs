@@ -16,7 +16,7 @@ namespace TechieDelight
             //Arrays.MaxDiffBetweenTwoElementsWithConstraint.Driver();
             //Arrays.MaxProfixWith2StockTransaction.Driver();
             //Arrays.EquilibriumIndex.Driver();
-
+            BinaryArrayLinearSort.Driver();
 
             //Matrix Related
             //Matrix.MaxSumSubMatrix.Driver();
@@ -31,7 +31,7 @@ namespace TechieDelight
             //Dynamic Programming
             //LongestCommonSubsequence.Driver();
             //RotatedPalindrome.Driver();
-            DuplicateInLimitedRange.Driver();
+            //DuplicateInLimitedRange.Driver();
         }
     }
 }
