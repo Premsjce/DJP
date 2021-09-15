@@ -8,7 +8,7 @@ namespace TechieDelight.Arrays
 {
     /*
      * https://www.techiedelight.com/find-maximum-profit-earned-from-at-most-two-stock-transactions/
-     * Given a list of futuere prediction share prices, find max profit that can be earned by 
+     * Given a list of futuer prediction share prices, find max profit that can be earned by 
      * buying and selling shares at most twice with a constraint that a new transaction can only start
      * after previous transaction has been complete. 
      * i.e. we can only hold at most one share at a time
@@ -17,10 +17,13 @@ namespace TechieDelight.Arrays
     {
         public static void Driver()
         {
-            int[] stockPrices = { 10, 6, 8, 4, 2 };  //{ 2, 4, 7, 5, 4, 3, 5 };
+            int[] stockPrices = { 2, 4, 7, 5, 4, 3, 5 };
             var maxProfit = GetMaxProfitFrom2Transactions(stockPrices);
+            var maxProfit2 = GetMaxProfitFor2Stock(stockPrices);
 
             Console.WriteLine($"Maximum profit that can be achived with above prices are : {maxProfit}");
+
+            Console.WriteLine($"Maximum profit that 2 Stoks: {maxProfit2}");
         }
 
         private static int GetMaxProfitFrom2Transactions(int[] stockPrices)
@@ -48,6 +51,33 @@ namespace TechieDelight.Arrays
             }
 
             return profits[n - 1];
+        }
+
+        private static int GetMaxProfitFor2Stock(int[] prices)
+        {
+            int[] profits = new int[prices.Length];
+
+            int maxSoFar = prices[prices.Length - 1];
+            int maxProfitTillNow = int.MinValue;
+
+            for (int i = prices.Length - 2; i >= 0; i--)
+            {
+                maxSoFar = Math.Max(maxSoFar, prices[i]);
+                maxProfitTillNow = Math.Max(maxProfitTillNow, maxSoFar - prices[i]);
+                profits[i] = maxProfitTillNow;
+            }
+
+            int minSoFar = prices[0];
+            maxProfitTillNow = profits[0];
+
+            for (int i = 1; i < prices.Length; i++)
+            {
+                int profitTillNow = prices[i] - minSoFar + profits[i];
+                maxProfitTillNow = Math.Max(maxProfitTillNow, profitTillNow);
+                profits[i] = maxProfitTillNow;
+            }
+
+            return profits[prices.Length - 1];
         }
     }
 }

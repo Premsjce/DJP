@@ -8,8 +8,8 @@
             //SelectionSort.Driver();
             //MergeSort.Driver();
             //RadixSort.Driver();
-            //HeapSort.Driver();
-            QuickSort.Driver();
+            HeapSort.Driver();
+            //QuickSort.Driver();
         }
     }
 }

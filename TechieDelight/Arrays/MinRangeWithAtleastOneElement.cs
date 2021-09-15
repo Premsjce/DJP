@@ -8,7 +8,7 @@ namespace TechieDelight.Arrays
      * Given 3 sorted array of variable length, efficiently compute the minimum range
      * with atleast one element from each array
      * 
-     * ex input : [3,6,8,10,15], [1,5,2], [4,8,15,16]
+     * ex input : [3,6,8,10,15], [1,2,5], [4,8,15,16]
      * Ouptut Min range : [3-5] , because 3,4,5 are min range element in each array respectively 
      */
     public class MinRangeWithAtleastOneElement
@@ -28,9 +28,10 @@ namespace TechieDelight.Arrays
         }
 
 
-        //Brute force apporach has n power 3 solution i.e go for each and every combination and get min and max
+        //Brute force apporach has O(n^3) time complexity solution i.e
+        //go for each and every combination and get min and max
         //keep track of diff and for the combination for which diff is less , that range is minimum,
-        //THis apprach is not efficient
+        //its not a Efficient apprach
         //Range will be minimum for those pair with low and high are near to each other.
         public static Pair FindMinRangeNaive(int[] arrayOne, int[] arrayTwo, int[] arrayThree)
         {
@@ -84,7 +85,7 @@ namespace TechieDelight.Arrays
             {
                 //Find minimum and maximum in current tripplets
                 int low = Math.Min(Math.Min(first[firstLength], second[secondLength]), third[thirdLength]);
-                int high = Math.Max(Math.Min(first[firstLength], second[secondLength]), third[thirdLength]);
+                int high = Math.Max(Math.Max(first[firstLength], second[secondLength]), third[thirdLength]);
 
                 if (diff > high - low)
                 {

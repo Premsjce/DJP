@@ -43,12 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays\GlobalMaximum.cs" />
+    <Compile Include="Graphs\ConnectedSum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strings\ReverseWordsInString.cs" />
+    <Compile Include="Strings\SmallestWindowContainingOtherString.cs" />
+    <Compile Include="Trees\BalancedBinarySearchTreeTriplets.cs" />
+    <Compile Include="Trees\BinarySearchTree.cs" />
+    <Compile Include="Trees\NodeLevel.cs" />
+    <Compile Include="Trees\PrintCousinsNotSiblings.cs" />
+    <Compile Include="Trees\PrintNodesAtGivenLevel.cs" />
     <Compile Include="Trees\UniqueBinaryTrees.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj">
+      <Project>{41AA2611-38B3-41CA-9433-ECFBD2973552}</Project>
+      <Name>DataStructures</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

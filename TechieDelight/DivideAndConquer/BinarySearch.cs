@@ -11,18 +11,19 @@ namespace TechieDelight.DivideAndConquer
             Console.WriteLine($"Index of item 19 is : {index}");
         }
 
-        private static int BinarySearchAlgo(int[] sortedArray, int item, int start, int last)
+        private static int BinarySearchAlgo(int[] sortedArray, int item, int leftPointer, int rightPointer)
         {
-            if (start > last) return -1;
+            if (leftPointer > rightPointer)
+                return -1;
 
-            int middle = (start + last) / 2;
+            int middle = (leftPointer + rightPointer) / 2;
             if (sortedArray[middle] == item)
                 return middle;
 
             if (sortedArray[middle] > item)
-                return BinarySearchAlgo(sortedArray, item, start, middle);
+                return BinarySearchAlgo(sortedArray, item, leftPointer, middle);
             else
-                return BinarySearchAlgo(sortedArray, item, middle+1, last);
+                return BinarySearchAlgo(sortedArray, item, middle+1, rightPointer);
         }
     }
 }

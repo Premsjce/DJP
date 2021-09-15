@@ -9,6 +9,7 @@ namespace TechieDelight.Arrays
             int[] array = { 2, 4, 7, 5, 4, 3, 5 };
             int k = 3;
             int result = GetMaxProfit(array, k);
+            Console.WriteLine($"{result}");
         }
 
         private static int GetMaxProfit(int[] prices, int k)
@@ -35,5 +36,6 @@ namespace TechieDelight.Arrays
             }
             return profits[k, n - 1]; ;
         }
+
     }
 }

@@ -7,13 +7,14 @@ namespace Sorting
     {
         public static void Driver()
         {
-            int[] array = { 55, 25, 89, 34, 12, 19, 78, 95, 1, 100 };
+            int[] array = { 55, 25, 89, 34, 12, 19, 78, 95, 1, 100,1 };
 
             Console.WriteLine("Unsorted Array");
             PrintArray(array);
 
-            HeapDataStructure heapDataStructure = new HeapDataStructure();
-            heapDataStructure.AddRange(array);
+            MinHeap heapDataStructure = new MinHeap();
+            foreach(var num in array)
+                heapDataStructure.Push(num);
 
             Console.WriteLine();
             Console.WriteLine("Sorted Array");
@@ -34,118 +35,91 @@ namespace Sorting
             foreach (var num in array)
                 Console.Write(num + "\t");
         }
-
-        private static void HeapSortAlgo(int[] array, int length)
-        {
-            for (int index = length / 2 - 1; index >= 0; index--)
-                HeapifyUp(array, length, index);
-
-            for (int i = length - 1; i >= 0; i--)
-            {
-                //Swap last element (root element) with indeices
-                int temp = array[0];
-                array[0] = array[i];
-                array[i] = temp;
-                HeapifyUp(array, i, 0);
-            }
-        }
-
-        private static void HeapifyUp(int[] array, int length, int index)
-        {
-            int largest = index;
-            int left = 2 * index + 1;
-            int right = 2 * index + 2;
-
-            if (left < length && array[left] > array[largest])
-                largest = left;
-
-            if (right < length && array[right] > array[largest])
-                largest = right;
-
-            if (largest != index)
-            {
-                //Swap
-                int temp = array[index];
-                array[index] = array[largest];
-                array[largest] = temp;
-                HeapifyUp(array, length, largest);
-            }
-
-        }
     }
 
-    public class HeapDataStructure
+    public class MinHeap
     {
-        private List<int> baseHeap = new List<int>();
+        private List<int> _baseHeap;
 
-        public void AddRange(int[] nums)
+        public MinHeap()
         {
-            foreach (var num in nums)
-                Push(num);
+            _baseHeap = new List<int>();
         }
 
-        public void Push(int num)
+        public void Push(int item)
         {
-            baseHeap.Add(num);
+            _baseHeap.Add(item);
             HeapifyUp();
         }
 
         public int Pop()
         {
-            var lastIndex = baseHeap.Count - 1;
-            var num = baseHeap[0];
-            baseHeap[0] = baseHeap[lastIndex];
-            baseHeap.RemoveAt(lastIndex);
+            if (_baseHeap.Count == 0)
+                throw new Exception("Heap is empty");
+
+            var lastIndex = _baseHeap.Count - 1;
+            var item = _baseHeap[0];
+            _baseHeap[0] = _baseHeap[lastIndex];
+            _baseHeap.RemoveAt(lastIndex);
             HeapifyDown();
-            return num;
+            return item;
         }
-        
-        public int Peek() => baseHeap[0];
+
+        public int Peek()
+        {
+            if (_baseHeap.Count == 0)
+                throw new Exception("Heap is empty");
+            return _baseHeap[0];
+        }
+
 
         private void HeapifyUp()
         {
-            int currentIndex = baseHeap.Count - 1;
-            int parentIndex = (currentIndex - 1) / 2;
+            int childIndex = _baseHeap.Count - 1;
+            int parentIndex = (childIndex - 1) / 2;
 
-            while (currentIndex > 0)
+            while (_baseHeap[parentIndex] > _baseHeap[childIndex] && parentIndex >= 0)
             {
-                if(baseHeap[currentIndex] < baseHeap[parentIndex])
-                {
-                    var temp = baseHeap[parentIndex];
-                    baseHeap[parentIndex] = baseHeap[currentIndex];
-                    baseHeap[currentIndex] = temp;
-                }
-                currentIndex = parentIndex;
-                parentIndex = (currentIndex - 1) / 2;
+                Swap(parentIndex, childIndex);
+                childIndex = parentIndex;
+                parentIndex = (childIndex - 1) / 2; ;
             }
-
         }
-        
+
         private void HeapifyDown()
         {
-            int currentIndex = 0;
-            int leftChild = (currentIndex * 2) + 1;
-            int rightChild = (currentIndex * 2) + 2;
+            int heapLength = _baseHeap.Count;
+            int parentIndex = 0;
 
-            while (leftChild < baseHeap.Count && rightChild < baseHeap.Count && (baseHeap[currentIndex] > baseHeap[leftChild] || baseHeap[currentIndex] > baseHeap[rightChild]))
+            int leftChildIndex = (2 * parentIndex) + 1;
+            int rightChildIndex = (2 * parentIndex) + 2;
+
+            while (leftChildIndex < heapLength && rightChildIndex < heapLength
+                && (_baseHeap[parentIndex] > _baseHeap[leftChildIndex] || _baseHeap[parentIndex] > _baseHeap[rightChildIndex]))
             {
-                if(baseHeap[leftChild] < baseHeap[rightChild])
+                if (_baseHeap[leftChildIndex] < _baseHeap[rightChildIndex])
                 {
-                    var temp = baseHeap[leftChild];
-                    baseHeap[leftChild] = baseHeap[currentIndex];
-                    baseHeap[currentIndex] = temp;
-                    currentIndex = leftChild;
+                    Swap(parentIndex, leftChildIndex);
+                    parentIndex = leftChildIndex;
                 }
                 else
                 {
-                    var temp = baseHeap[rightChild];
-                    baseHeap[rightChild] = baseHeap[currentIndex];
-                    baseHeap[currentIndex] = temp;
-                    currentIndex = rightChild;
-                }
-                leftChild = (currentIndex * 2) + 1;
-                rightChild = (currentIndex * 2) + 2;
+                    Swap(parentIndex, rightChildIndex);
+                    parentIndex = rightChildIndex;
+                }                
+
+                leftChildIndex = (2 * parentIndex) + 1;
+                rightChildIndex = (2 * parentIndex) + 2;
             }
         }
+
+        private void Swap(int parentIndex, int childIndex)
+        {
+            var temp = _baseHeap[parentIndex];
+            _baseHeap[parentIndex] = _baseHeap[childIndex];
+            _baseHeap[childIndex] = temp;
+        }
     }
+
+    
 }

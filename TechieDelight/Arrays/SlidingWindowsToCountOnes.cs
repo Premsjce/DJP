@@ -13,15 +13,18 @@ namespace TechieDelight.Arrays
             //int[] array = { 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1 };
             int[] array = { 0, 0, 1, 0, 1, 1, 1, 0, 1, 1 };
 
-            int count = GetMaxOneByReplacingOneZeroRevision(array);
-
+            int count = GetMaxOnesByReplacingOneZero(array);
             Console.WriteLine($"With current array, max one's achieved by single 0 replacement is  : {count}");
 
-            count = GetMaxOneByReplacingOneZeroRevision(array);
+            count = GetMaxOnesByReplacingOneZeroRevision(array);
             Console.WriteLine($"With current array, max one's achieved by single 0 replacement is  : {count}");
+
+
+            count = GetMaxOnesBySimpleMethod(array);
+            Console.WriteLine($"Simple Method without Sliding windows technique : {count}");
         }
 
-        private static int GetMaxOneByReplacingOneZero(int[] array)
+        private static int GetMaxOnesByReplacingOneZero(int[] array)
         {
             //{ 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1 };
 
@@ -69,7 +72,7 @@ namespace TechieDelight.Arrays
             return currentZeroIndex;
         }
         
-        private static int GetMaxOneByReplacingOneZeroRevision(int[] array)
+        private static int GetMaxOnesByReplacingOneZeroRevision(int[] array)
         {
             int leftPointer = 0, zerosCount = 0, onesCount = 0;
             int  currentZeroIndex = -1, prevZeroIndex = -1;
@@ -92,7 +95,6 @@ namespace TechieDelight.Arrays
 
                     //move to next starting one in the current window
                     leftPointer += 1;
-                    
                     zerosCount -= 1;
                 }
 
@@ -108,6 +110,61 @@ namespace TechieDelight.Arrays
 
             //To get max count return onesCount
             //return onesCount;
+        }
+
+        private static int GetMaxOnesBySimpleMethod(int[] array)
+        {
+            if (array.Length == 0)
+                return -1;
+
+            if (array.Length == 1)
+                return array[0] == 0 ? 1 : 0;
+
+            //Add 1's count in array
+            for(int i = 1; i < array.Length; i++)
+            {
+                if (array[i] == 1)
+                    array[i] += array[i - 1];
+            }
+
+            int count = 0;
+            //Add consecutive one count in array, start from right to left
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                count = Math.Max(count, array[i]);
+
+                if (array[i] != 0)
+                    array[i] = count;
+                else
+                    count = 0;
+            }
+
+            int maxOnesCount = 0;
+            int indexOfZero = 0;
+
+            for(int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == 0)
+                {
+                    if (i == 0 && maxOnesCount < array[i + 1] + 1)
+                    {
+                            maxOnesCount = array[i + 1] + 1;
+                            indexOfZero = i;
+                    }
+                    else if (i == array.Length - 1 && maxOnesCount < array[i - 1] + 1)
+                    {
+                        maxOnesCount = array[i - 1] + 1;
+                        indexOfZero = i;
+                    }
+                    else if(maxOnesCount < (array[i - 1] + 1 + array[i + 1]))
+                    {
+                        maxOnesCount = array[i - 1] + 1 + array[i + 1];
+                        indexOfZero = i;
+                    }
+                }
+            }
+
+            return indexOfZero;
         }
     }
 }

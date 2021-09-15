@@ -7,7 +7,7 @@ namespace InterviewQuestions
     {
         public static void Driver()
         {
-            int[] hist = { 1,2,3,4,5,3,3,2};
+            int[] hist = { 1, 2, 3, 4, 5, 3, 3, 2 };
             Console.WriteLine(GetMaxArea(hist));
         }
 

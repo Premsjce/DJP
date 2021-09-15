@@ -21,18 +21,19 @@ namespace DataStructures
             Console.WriteLine(trieTree.Search("Lollygag"));
         }
     }
+    
+    public class TrieNode
+    {
+        public Dictionary<char, TrieNode> Children { get; set; } = new Dictionary<char, TrieNode>();
+        public bool IsEndOfWord { get; set; }
+    }
 
     public class Trie
     {
-        public class TrieNode
-        {
-            public Dictionary<char, TrieNode> Children { get; set; } = new Dictionary<char, TrieNode>();
-            public bool IsEndOfWord { get; set; }
-        }
-
+        
         public Trie() => Root = new TrieNode();
 
-        public TrieNode Root { get; } = new TrieNode();
+        public TrieNode Root { get; }
 
         public void Add(string str) => RecursiveInsert(str, 0, Root);
 

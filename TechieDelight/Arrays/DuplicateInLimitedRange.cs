@@ -8,6 +8,7 @@ namespace TechieDelight.Arrays
 {
     /// <summary>
     /// https://www.techiedelight.com/find-duplicate-element-limited-range-array/
+    /// Given a limited range array of Size n,  and containing element 1 to n-1 with one element repeating
     /// Find duplicate element in a limited range array
     /// Ex : 
     /// Input:  { 1, 2, 3, 4, 4 }
@@ -19,7 +20,7 @@ namespace TechieDelight.Arrays
     {
         public static void Driver()
         {
-            int[] inputArray = {  };
+            int[] inputArray = { 9, 8, 6, 1, 7, 9, 2, 5, 3, 4 };
             Console.WriteLine($"Duplicate Number is  {FindDuplicate(inputArray)}");
             Console.WriteLine($"Duplicate Number is  without Extra space is : {FindDuplicateWithoutExtraSpace(inputArray)}");
         }

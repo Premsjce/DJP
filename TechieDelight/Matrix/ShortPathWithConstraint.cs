@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 namespace TechieDelight.Matrix
 {
+    /// <summary>
+    /// https://www.techiedelight.com/find-shortest-path-source-destination-matrix-satisfies-given-constraints/
+    /// Given N*N of positive integers, find the shortest path from the first cell of the matrix 
+    /// to its last cell that satisfies the given constraints
+    /// 1. We can move exactly K steps from any cell in matrix where K is the value of the cell
+    /// </summary>
     public class ShortPathWithConstraint
     {
         public static void Driver()
@@ -26,36 +32,37 @@ namespace TechieDelight.Matrix
 
             int sourceX = 0;
             int sourceY = 0;
-            int destX = 2;
-            int destY = 0;
+            int destX = 9;
+            int destY = 9;
             bool[,] visited = new bool[ROW, COL];
 
+            MatrixNode node = null;
             for (int row = 0; row < ROW; row++)
             {
                 for (int col = 0; col < COL; col++)
                 {
                     if (row == sourceX && sourceY == col)
                     {
-                        FindShortestPath(matrix, sourceX, sourceY, destX, destY, visited);
+                       node = FindShortestPath(matrix, sourceX, sourceY, destX, destY, visited);
                     }
                 }
             }
+
+            if (node == null)
+                Console.WriteLine("Destination node cannot be reached");
+            else
+            {
+                var jumps = PrintPath(node) -1;
+                Console.WriteLine("\nTotal jumps from source to destination is  : " + jumps);
+            }       
         }
 
-        private static void FindShortestPath(int[,] matrix, int sourceX, int sourceY, int destX, int destY, bool[,] visited)
+        private static MatrixNode FindShortestPath(int[,] matrix, int sourceX, int sourceY, int destX, int destY, bool[,] visited)
         {
-            if (sourceX == destX && sourceY == destY)
-            {
-                Console.WriteLine($"Shortest Distance is  0");
-                return;
-            }
-
             int[] ROWS = { 0, 0, -1, 1 };
             int[] COLS = { -1, 1, 0, 0 };
-            //int[] ROWS = { -1, -1, -1, 0, 0, 0, 1, 1, 1 };
-            //int[] COLS = { -1, 0, 1, -1, 0, 1, -1, 0, 1 };
 
-            var sourceNode = new MatrixNode(sourceX, sourceY, 0);
+            var sourceNode = new MatrixNode(sourceX, sourceY, null);
             Queue<MatrixNode> queue = new Queue<MatrixNode>();
             queue.Enqueue(sourceNode);
 
@@ -66,10 +73,7 @@ namespace TechieDelight.Matrix
                 int currentY = currentNode.Y;
 
                 if (currentX == destX && currentY == destY)
-                {
-                    Console.WriteLine($"Shortest Distance is  {currentNode.Distance}");
-                    return;
-                }
+                    return currentNode;
 
                 for (int i = 0; i < 4; i++)
                 {
@@ -80,13 +84,22 @@ namespace TechieDelight.Matrix
                     if (IsSafeAndValid(matrix, nextX, nextY, visited))
                     {
                         visited[nextX, nextY] = true;
-                        var nextNode = new MatrixNode(nextX, nextY, (currentValue + currentNode.Distance));
+                        var nextNode = new MatrixNode(nextX, nextY, currentNode);
                         queue.Enqueue(nextNode);
                     }
                 }
             }
+            return null;
+        }
 
-            Console.WriteLine("Destination cannot be reached");
+        private static int PrintPath(MatrixNode node)
+        {
+            if (node == null)
+                return 0;
+            
+            var jump = PrintPath(node.Parent);
+            Console.Write($"({node.X},{node.Y}) ");
+            return jump + 1;
         }
 
         private static bool IsSafeAndValid(int[,] matrix, int nextX, int nextY, bool[,] visited)
@@ -99,14 +112,14 @@ namespace TechieDelight.Matrix
 
     public class MatrixNode
     {
+        public MatrixNode Parent { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public int Distance { get; set; }
-        public MatrixNode(int x, int y, int dist)
+        public MatrixNode(int x, int y, MatrixNode parent)
         {
             X = x;
             Y = y;
-            Distance = dist;
+            Parent = parent;
         }
     }
 }

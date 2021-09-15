@@ -11,9 +11,7 @@ namespace TechieDelight.Backtracking
         public static void Driver()
         {
             int dimension = 5;
-
             GetCom(dimension);
-
         }
 
         public static IList<IList<string>> GetCom(int dimension)
@@ -21,6 +19,7 @@ namespace TechieDelight.Backtracking
             int currentRow = 0;
             char[,] board = new char[dimension, dimension];
 
+            //Initializing the Emplty Board
             for (int row = 0; row < dimension; row++)
                 for (int col = 0; col < dimension; col++)
                     board[row, col] = '-';
@@ -28,6 +27,7 @@ namespace TechieDelight.Backtracking
             var output = new List<IList<string>>();
             PrintAllPossibleCombination(board, currentRow, output);
             
+            //Printing the possible output combinations
             foreach(var o in output)
             {
                 foreach(var i in o)
@@ -41,6 +41,8 @@ namespace TechieDelight.Backtracking
         private static void PrintAllPossibleCombination(char[,] board, int currentRow, List<IList<string>> output)
         {
             int dimension = board.GetLength(0);
+
+            //It means we have reached a combination where all the Queens are places perfectly on board
             if (dimension == currentRow)
             {
                 var currentCombination = new List<string>();
@@ -48,9 +50,8 @@ namespace TechieDelight.Backtracking
                 {
                     var cRow = string.Empty;
                     for (int col = 0; col < dimension; col++)
-                    {
                         cRow += board[row, col];
-                    }
+
                     currentCombination.Add(cRow);
                 }
                 output.Add(currentCombination);

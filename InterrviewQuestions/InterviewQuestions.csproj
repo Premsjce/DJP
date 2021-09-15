@@ -54,6 +54,9 @@
     <Compile Include="DistinctArrayFormationBySwapping2Numbers.cs" />
     <Compile Include="ExcelColumnNameToNumber.cs" />
     <Compile Include="FindFibonacci.cs" />
+    <Compile Include="FrequencyCounter.cs" />
+    <Compile Include="OpenText.cs" />
+    <Compile Include="TopViewOfTree.cs" />
     <Compile Include="URLShortner.cs" />
     <Compile Include="ZZZInterviewQuestionsDriver.cs" />
     <Compile Include="DFSIslandAndWater.cs" />

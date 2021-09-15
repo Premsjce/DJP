@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InterviewQuestions
 {
@@ -11,14 +8,14 @@ namespace InterviewQuestions
     /// </summary>
     public class LRUCache
     {
-        public const int LRU_SIZE = 10;
+        public readonly int LRU_SIZE ;
         public Dictionary<int, Entry> HashMap { get; set; }
         private Entry Start, End;
-        public LRUCache()
+        public LRUCache(int size)
         {
+            LRU_SIZE = size;
             HashMap = new Dictionary<int, Entry>();
         }
-
 
         public void Drvier()
         {
@@ -34,7 +31,6 @@ namespace InterviewQuestions
             Console.WriteLine(GetEntry(10));
             Console.WriteLine(GetEntry(15));
         }
-
 
         public int GetEntry(int key)
         {

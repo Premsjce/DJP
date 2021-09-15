@@ -11,7 +11,7 @@ namespace TechieDelight.Arrays
 
         public static void Driver()
         {
-            int[] array = { 3, 4, -7, 3, 1, 3, 1, -4, -2, -2 };
+            int[] array = { 3, 4, 7, 3, 1, 3, 1, -4, -2, -2 };
 
             var result = ZeroSumSubArray(array);
         }

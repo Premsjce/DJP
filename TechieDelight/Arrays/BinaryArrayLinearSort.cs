@@ -8,9 +8,10 @@ namespace TechieDelight.Arrays
         {
             int[] inputArray = { 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 };
 
-            int[] output = SortInLinearTime(inputArray);
+            //int[] output = SortInLinearTime(inputArray);
 
-            foreach(var num in output)
+            SortInLinearTimeNoExtraSpace(inputArray);
+            foreach (var num in inputArray)
                 Console.Write($"{num} ");
 
             Console.WriteLine();
@@ -31,6 +32,31 @@ namespace TechieDelight.Arrays
                 output[i] = 1;
 
             return output;
+        }
+
+        private static void SortInLinearTimeNoExtraSpace(int[] inputArray)
+        {
+            if (inputArray.Length < 2)
+                return ;
+
+            int zeroPointer = 0;
+            int onePointer = inputArray.Length - 1;
+
+            while(zeroPointer < onePointer)
+            {
+                if (inputArray[zeroPointer] == 0)
+                    zeroPointer++;
+
+                if (inputArray[onePointer] == 1)
+                    onePointer--;
+
+                if (zeroPointer < onePointer && inputArray[zeroPointer] > inputArray[onePointer])
+                {
+                    inputArray[onePointer--] = 1;
+                    inputArray[zeroPointer++] = 0;
+                }
+            }
+            
         }
     }
 }

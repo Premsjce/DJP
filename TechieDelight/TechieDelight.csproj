@@ -50,16 +50,22 @@
     <Compile Include="Arrays\MaxDiffBetweenTwoElementsWithConstraint.cs" />
     <Compile Include="Arrays\MaxProfixFromKStockTransactions.cs" />
     <Compile Include="Arrays\MaxProfixWith2StockTransaction.cs" />
+    <Compile Include="Arrays\MaxRangeWithAtleastOneElement.cs" />
     <Compile Include="Arrays\MinRangeWithAtleastOneElement.cs" />
     <Compile Include="Arrays\SlidingWindowsToCountOnes.cs" />
     <Compile Include="Arrays\SubArrayWithZeroSum.cs" />
+    <Compile Include="Backtracking\ChessKnightAllPossibleTour.cs" />
+    <Compile Include="Backtracking\ChessKnightShortestPath.cs" />
     <Compile Include="Backtracking\NQueens.cs" />
     <Compile Include="DivideAndConquer\BinarySearch.cs" />
     <Compile Include="DP\LongestCommonSubsequence.cs" />
+    <Compile Include="DP\ZeroOneKnapsack.cs" />
     <Compile Include="Matrix\MaxSumSubMatrix.cs" />
+    <Compile Include="Matrix\MinimumPassNegativeToPositive.cs" />
     <Compile Include="Matrix\ShortPathWithConstraint.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\LongestPalindromicSubstring.cs" />
     <Compile Include="String\RotatedPalindrome.cs" />
     <Compile Include="String\StringExtensions.cs" />
   </ItemGroup>

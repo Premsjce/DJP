@@ -62,7 +62,7 @@ namespace InterviewQuestions.UiPath
         public int Pop()
         {
             if (baseStack.Count == 0)
-                throw new Exception("Emty stack");
+                throw new Exception("Empty stack");
 
             var item = baseStack.Pop();
             if (item >= minElement)

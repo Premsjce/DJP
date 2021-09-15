@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace TechieDelight.DP
 {
+    /// <summary>
+    /// https://www.techiedelight.com/longest-common-subsequence/
+    /// The Longest Common Subsequence (LCS) problem is finding the longest subsequence present in given two sequences 
+    /// in the same order, i.e., find the longest sequence which can be obtained from the first original sequence 
+    /// by deleting some items and from the second original sequence by deleting other items.
+    /// </summary>
     public class LongestCommonSubsequence
     {
         public static void Driver()
@@ -13,14 +19,22 @@ namespace TechieDelight.DP
             string first = "ABCBDAB";
             string second = "BDCABA";
 
-            Dictionary<string, int> lookup = new Dictionary<string, int>();
-            //int result = FindLCSRecursion(first, second, first.Length, second.Length);
-            //int result = FindLCSMemoization(first, second, first.Length, second.Length, lookup);
-            //int result = FindLCSTabulation(first, second, first.Length, second.Length);
+
+            //int result = LCSRecursion(first, second, first.Length, second.Length);
+            
+            //int result = LCSRecursionFromBeginning(first, second, first.Length, second.Length);
+
+            //Dictionary<string, int> lookup = new Dictionary<string, int>();
+            //int resulta = FindLCSMemoization(first, second, first.Length, second.Length, lookup);
+            //Console.WriteLine(resulta);
+            //return;
 
             //Finding all the subsequences
+            //var resulasa = FindLCSTabulation(first, second, first.Length, second.Length);
+            //Console.WriteLine(resulasa);
+            //return;
+
             int[,] lookupTable = new int[first.Length + 1, second.Length + 1];
-            FindLCSTabulation(first, second, first.Length, second.Length, lookupTable);
             var result = FindLCSGetList(first, second, first.Length, second.Length, lookupTable);
 
             HashSet<string> set = new HashSet<string>();
@@ -29,56 +43,77 @@ namespace TechieDelight.DP
                 Console.WriteLine($"Longest Length of common subsequence is {n}");
         }
 
-        //Time complexity is  O(2^(m+n))
-        private static int FindLCSRecursion(string first, string second, int firstLength, int secondLength)
+        //Naive solution with O(2^(m+n)) time complexity
+        private static int LCSRecursion(string firstString, string secondString, int firstLength, int secondLength)
         {
             if (firstLength == 0 || secondLength == 0)
                 return 0;
 
-            if (first[firstLength - 1] == second[secondLength - 1])
-                return FindLCSRecursion(first, second, firstLength - 1, secondLength - 1) + 1;
+            if (firstString[firstLength - 1] == secondString[secondLength - 1])
+                return LCSRecursion(firstString, secondString, firstLength - 1, secondLength - 1) + 1;
+            else
+                return Math.Max(LCSRecursion(firstString, secondString, firstLength, secondLength - 1),
+                    LCSRecursion(firstString, secondString, firstLength - 1, secondLength));
 
-            return Math.Max(FindLCSRecursion(first, second, firstLength - 1, secondLength),
-                            FindLCSRecursion(first, second, firstLength, secondLength - 1));
+        }
+
+        private static int LCSRecursionFromBeginning(string firstString, string secondString, int firstPointer, int secondPointer)
+        {
+            if (firstPointer == firstString.Length || secondPointer == secondString.Length)
+                return 0;
+
+            if (firstString[firstPointer] == secondString[secondPointer])
+                return LCSRecursionFromBeginning(firstString, secondString, firstPointer + 1, secondPointer + 1) + 1;
+
+            return Math.Max(LCSRecursionFromBeginning(firstString, secondString, firstPointer + 1, secondPointer),
+                LCSRecursionFromBeginning(firstString, secondString, firstPointer, secondPointer + 1));
         }
 
         //DP with Top Down (Memoization), Time complexxity is  O(mn)
-        private static int FindLCSMemoization(string first, string second, int firstLength, int secondLength, Dictionary<string, int> lookup)
+        private static int FindLCSMemoization(string first, string second, int fLength, int sLength, Dictionary<string, int> lookUp)
         {
-            if (firstLength == 0 || secondLength == 0)
+            if (fLength == 0 || sLength == 0)
                 return 0;
 
-            //Constructing a unique key for lookup
-            string key = firstLength + "|" + secondLength;
+            var uniqueKey = fLength + "||" + sLength;
 
-            if (lookup.ContainsKey(key))
-                return lookup[key];
+            if (lookUp.ContainsKey(uniqueKey))
+                return lookUp[uniqueKey];
 
-            if (first[firstLength - 1] == second[secondLength - 1])
-                lookup.Add(key, FindLCSMemoization(first, second, firstLength - 1, secondLength - 1, lookup) + 1);
+            if (first[fLength - 1] == second[sLength - 1])
+                lookUp.Add(uniqueKey, FindLCSMemoization(first, second, fLength - 1, sLength - 1, lookUp) + 1);
             else
-                lookup.Add(key, Math.Max(FindLCSMemoization(first, second, firstLength, secondLength - 1, lookup),
-                                         FindLCSMemoization(first, second, firstLength - 1, secondLength, lookup)));
+            {
+                var max = Math.Max(
+                    FindLCSMemoization(first, second, fLength, sLength - 1, lookUp),
+                    FindLCSMemoization(first, second, fLength - 1, sLength, lookUp));
+                lookUp.Add(uniqueKey, max);
+            }
 
-            return lookup[key];
+            return lookUp[uniqueKey];
         }
 
         //DP with BottomUp(Tabulation), Time complexity is O(mn)
-        private static int FindLCSTabulation(string first, string second, int firstLength, int secondLength, int[,] lookupTable)
+        public static int FindLCSTabulation(string first, string second, int fLength, int sLength)
         {
-            //int[,] lookupTable = new int[firstLength + 1, secondLength + 1];
+            if (fLength == 0 || sLength == 0)
+                return 0;
+            int[,] lookUpTable = new int[fLength + 1, sLength + 1];
 
-            for (int i = 1; i <= firstLength; i++)
+
+            for (int i = 1; i <= fLength; i++)
             {
-                for (int j = 1; j <= secondLength; j++)
+                for (int j = 1; j <= sLength; j++)
                 {
                     if (first[i - 1] == second[j - 1])
-                        lookupTable[i, j] = lookupTable[i - 1, j - 1] + 1;
+                        lookUpTable[i, j] = lookUpTable[i - 1, j - 1] + 1;
                     else
-                        lookupTable[i, j] = Math.Max(lookupTable[i - 1, j], lookupTable[i, j - 1]);
+                        lookUpTable[i, j] = Math.Max(lookUpTable[i - 1, j], lookUpTable[i, j-1]);
                 }
             }
-            return lookupTable[firstLength, secondLength];
+
+
+            return lookUpTable[fLength,sLength];
         }
 
         //Get All LCS strings
