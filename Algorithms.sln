@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.438
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searching", "Searching\Searching.csproj", "{01525654-0F87-4A2C-A933-99B48A9D4B86}"
 EndProject
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID", "SOLID\SOLID.csproj", "{F546D3B2-5409-4946-988A-866F2A2CA688}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeeksForGeeks", "GeeksForGeeks\GeeksForGeeks.csproj", "{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blind75", "Blind75\Blind75.csproj", "{5EDD7F72-F1AF-4C2A-BA23-7CCF570863CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAD7429E-A324-430E-A3D0-25E7EF4BFCB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EDD7F72-F1AF-4C2A-BA23-7CCF570863CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EDD7F72-F1AF-4C2A-BA23-7CCF570863CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EDD7F72-F1AF-4C2A-BA23-7CCF570863CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EDD7F72-F1AF-4C2A-BA23-7CCF570863CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
