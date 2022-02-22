@@ -55,6 +55,7 @@
     <Compile Include="ExcelColumnNameToNumber.cs" />
     <Compile Include="FindFibonacci.cs" />
     <Compile Include="FrequencyCounter.cs" />
+    <Compile Include="Microsoft.cs" />
     <Compile Include="OpenText.cs" />
     <Compile Include="TopViewOfTree.cs" />
     <Compile Include="URLShortner.cs" />
